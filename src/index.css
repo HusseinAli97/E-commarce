@@ -68,3 +68,8 @@ body {
   }
 }
 
+.textErorr{
+  color: var(--primary-color);
+  opacity: 1;
+  text-shadow: 0 0 10px var(--dark-color);
+}

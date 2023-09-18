@@ -25,3 +25,9 @@ label {
     border-radius: 0.5rem;
     box-shadow: var(--box-shadow);
 }
+.MnH{
+    min-height: 30px;
+}
+.MnH .form-text {
+    white-space: nowrap;
+}
