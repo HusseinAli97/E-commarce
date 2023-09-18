@@ -1,0 +1,27 @@
+.bgCard {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("../../images/bgCard.jpg");
+    background-size: cover !important;
+    color: var(--light-color);
+}
+
+.bgCard label {
+    background-color: transparent !important;
+}
+
+.bgCard input {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    color: var(--light-color) !important;
+}
+
+label {
+    --bs-body-bg: rgba(0, 0, 0, 0.2) !important;
+    color: var(--light-color) !important;
+}
+.bgForm {
+    background: linear-gradient(rgba(0, 0, 0, 0.604), rgba(0, 0, 0, 0.5)), url("../../images/bgCard.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+}

@@ -1,13 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;700&family=Poppins:wght@200;300;400;600;900&display=swap');
+/* Main Css Variable */
+:root {
+  --primary-color: #6666ff;
+  --secondary-color: #666666;
+  --black-color: #000000;
+  --green-color: #669933;
+  --lightBlue-color: #79c8ed;
+  --lightPurple-color: #8f79ed;
+  --offWhite-color: #d7d5d5e5;
+  --waterMelon-color: #dd6d9a;
+  --lightWaterMelon-color: #e66262;
+  --mustard-color: #fcb941;
+  --dark-color: #212529;
+  --light-color: #fafafa;
+  --transition: all 0.3s ease-in-out;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --lightShadow: 0 5px 15px rgba(188, 184, 184, 0.291);
+  --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.49);
+  --lightOpColor: rgba(218, 212, 212, 0.515);
+}
+/* End */
+
+/* General */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-color);
+}
+.textHover{
+  transition: var(--transition);
+}
+.textHover:hover{
+  color: var(--lightPurple-color);
+}
+.navColor {
+  padding: 0;
+}
+.navBg{
+  background-color: var(--light-color);
+  color: var(--dark-color) !important;
+}
+/* End */
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: var(--lightWaterMelon-color);
+  background: -webkit-linear-gradient(to right, var(--lightBlue-color), var(--lightPurple-color), var(--lightPurple-color));
+  background: linear-gradient(to right, var(--lightBlue-color), var(--lightPurple-color), var(--lightPurple-color));
+}
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+.lshadow {
+  box-shadow: var(--lightShadow);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (min-width: 768px) {
+
+  .gradient-form {
+    height: 100vh !important;
+  }
 }
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+
