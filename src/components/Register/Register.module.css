@@ -1,5 +1,5 @@
 .bgCard {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("../../images/sponline_phone15_generated.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("../../images/bgForm.jpg");
     background-size: cover !important;
     background-position:center;
     object-fit: cover;
