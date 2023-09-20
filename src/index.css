@@ -73,3 +73,27 @@ body {
   opacity: 1;
   text-shadow: 0 0 10px var(--dark-color);
 }
+.green-Color{
+  background-color: var(--green-color);
+  opacity: 1;
+}
+.blue-Color{
+  background-color: var(--lightBlue-color);
+  opacity: 1;
+}
+.purple-Color{
+  background-color: var(--lightPurple-color);
+  opacity: 1;
+}
+.pink-Color{
+  background-color: var(--waterMelon-color);
+  opacity: 1;
+}
+.waterMelon-Color{
+  background-color: var(--lightWaterMelon-color);
+  opacity: 1;
+}
+.mustard-Color{
+  background-color: var(--mustard-color);
+  opacity: 1;
+}
