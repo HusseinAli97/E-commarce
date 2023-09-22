@@ -1,13 +1,16 @@
 import { useFormik } from 'formik';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Form, Col, FloatingLabel, Button, Row } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import * as Yup from 'yup';
 import styles from './Login.module.css';
+import { TokenContext } from '../../context/TokenContext'
+
 export default function Login({onSuccessfulLogin }) {
     const [isLoading, setIsLoading] = useState(false);
+    let { setToken } = useContext(TokenContext);
 
     // Validation schema for login
     const loginValidationSchema = Yup.object({
@@ -28,17 +31,20 @@ export default function Login({onSuccessfulLogin }) {
                 const response = await axios.post('https://route-ecommerce.onrender.com/api/v1/auth/signin', values);
                 //  successful login 
                 if (response.data.message === "success") {
+                    localStorage.setItem('userToken', response.data.token);
+                    setToken(response.data.token);
                     onSuccessfulLogin();
-                    toast.success("Login successful!", { position: "top-right" });
+                    setIsLoading(false);
+                    toast.success("Login successful!", { position: "top-right", autoClose: 1500 });
                 }
             } catch (error) {
                 //  login error
                 if (error.response) {
                     setIsLoading(false);
-                    toast.error(error.response.data.message, { position: "top-right" });
+                    toast.error(error.response.data.message, { position: "top-right", autoClose: 1500 });
                 } else {
                     setIsLoading(false);
-                    toast.error(error.message, { position: "top-right" });
+                    toast.error(error.message, { position: "top-right" , autoClose: 3000 });
                 }
             }
         },
@@ -51,9 +57,9 @@ export default function Login({onSuccessfulLogin }) {
             exit={{ opacity: 0, rotateY: 180 }}
             transition={{ duration: 0.5 }}
         >
-            <div className={` d-block position-absolute top-0 start-0 ${styles.MnH}`}>
+            <div className={` d-block position-absolute top-0 start-0 ${styles.MnH} `}>
                 {formik.errors.email && formik.touched.email && (
-                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-block bg-opacity-25">
+                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-block bg-opacity-25 mb-2">
                         * {formik.errors.email}
                     </div>
                 )}

@@ -11,6 +11,10 @@ import ContactUs from './components/ContactUs/ContactUs';
 import AboutUs from './components/AboutUs/AboutUs';
 import WishList from './components/WishList/WishList';
 import Error404 from './components/Error404/Error404';
+import { useContext, useEffect } from 'react';
+import { TokenContext } from './context/TokenContext';
+import ProtectRoutes from './components/ProtectRoutes/ProtectRoutes';
+
 
 const routes = createBrowserRouter([
   {
@@ -19,41 +23,43 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home/>
+        element: <ProtectRoutes><Home/></ProtectRoutes>
       },{
         path: 'products',
-        element: <Products/>
+        element: <ProtectRoutes><Products/></ProtectRoutes>
       },{
         path:'categories',
-        element:<Categories/>
+        element:<ProtectRoutes><Categories/></ProtectRoutes>
       },{
         path:'brands',
-        element:<Brands/>
+        element:<ProtectRoutes><Brands/></ProtectRoutes>
       },{
         path:'cart',
-        element:<Cart/>
+        element:<ProtectRoutes><Cart/></ProtectRoutes>
       },{
         path:'wishlist',
-        element:<WishList/>
+        element:<ProtectRoutes><WishList/></ProtectRoutes>
       }
       ,{
         path:'contact',
-        element:<ContactUs/>
+        element:<ProtectRoutes><ContactUs/></ProtectRoutes>
       },{
         path:'about',
-        element:<AboutUs/>
+        element:<ProtectRoutes><AboutUs/></ProtectRoutes>
       },{
         path:'*',
         element:<Error404/>
       }
     ]
   }
-  // ,{
-  //   path:'register',
-  //   element:<Register/>
-  // }
 ])
 function App() {
+  let {setToken} = useContext(TokenContext);
+  useEffect(()=>{
+    if(localStorage.getItem('userToken')){
+      setToken(localStorage.getItem('userToken'));
+    }
+  },[])
   return (
     <RouterProvider router={routes}/>
   );

@@ -8,3 +8,6 @@
     box-shadow: none;
     border: none;
 }
+.topNav {
+    font-family: var(--sec-Font) ;
+}

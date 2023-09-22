@@ -64,27 +64,27 @@ export default function SignUp({ switchToLoginForm }) {
             {/* Errors Messages */}
             <div className={` d-block position-absolute top-0 start-0 ${styles.MnH}`}>
                 {formik.errors.name && formik.touched.name && (
-                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-flex bg-opacity-25">
+                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-flex bg-opacity-25 mb-2">
                         * {formik.errors.name}
                     </div>
                 )}
                 {formik.errors.email && formik.touched.email && (
-                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-block bg-opacity-25">
+                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-block bg-opacity-25 mb-2">
                         * {formik.errors.email}
                     </div>
                 )}
                 {formik.errors.password && formik.touched.password && (
-                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-block bg-opacity-25">
+                    <div className="textErorr fw-bold bg-dark px-2 py-1 rounded ms-auto d-block bg-opacity-25 mb-2">
                         * {formik.errors.password}
                     </div>
                 )}
                 {formik.errors.rePassword && formik.touched.rePassword && (
-                    <div className="textErorr fw-bold bg-dark  px-2 py-1 rounded ms-auto d-block bg-opacity-25">
+                    <div className="textErorr fw-bold bg-dark  px-2 py-1 rounded ms-auto d-block bg-opacity-25 mb-2">
                         * {formik.errors.rePassword}
                     </div>
                 )}
                 {formik.errors.phone && formik.touched.phone && (
-                    <div className="textErorr fw-bold bg-dark rounded px-2 py-1 ms-auto d-block bg-opacity-25">
+                    <div className="textErorr fw-bold bg-dark rounded px-2 py-1 ms-auto d-block bg-opacity-25 mb-2">
                         * {formik.errors.phone}
                     </div>
                 )}
