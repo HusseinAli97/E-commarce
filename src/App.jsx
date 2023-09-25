@@ -14,6 +14,7 @@ import Error404 from './components/Error404/Error404';
 import { useContext, useEffect } from 'react';
 import { TokenContext } from './context/TokenContext';
 import ProtectRoutes from './components/ProtectRoutes/ProtectRoutes';
+import Details from './components/Details/Details';
 
 
 const routes = createBrowserRouter([
@@ -46,6 +47,9 @@ const routes = createBrowserRouter([
       },{
         path:'about',
         element:<ProtectRoutes><AboutUs/></ProtectRoutes>
+      },{
+        path:'details/:id',
+        element:<ProtectRoutes><Details/></ProtectRoutes>
       },{
         path:'*',
         element:<Error404/>

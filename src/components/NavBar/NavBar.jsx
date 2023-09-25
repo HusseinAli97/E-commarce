@@ -64,7 +64,7 @@ export default function NavBar() {
     </div>);
     return (
         <Navbar expand="md" className="">
-            <Container className="">
+            <Container fluid className="">
                 <Link to="/" className="d-flex align-items-center justify-content-center">
                     <img src={logo} alt="logo" className="img-fluid" />
                 </Link>

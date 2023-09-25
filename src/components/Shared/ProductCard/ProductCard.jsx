@@ -4,43 +4,46 @@ import { useState } from 'react';
 import Heart from "react-animated-heart";
 import * as React from 'react';
 import ReactStars from "react-rating-stars-component";
+import { Link } from 'react-router-dom';
 
 
 
 export default function ProductCard({ product }) {
-    let { sold, category, imageCover, price, quantity, ratingsAverage, title, brand } = product
+    let { sold, category, imageCover, price, quantity, ratingsAverage, title, brand, _id } = product
     let { name: categoryName } = category
     let { name: brandName } = brand
     let [isClick, setClick] = useState(false);
     return (
         <div className={` ${styles.card}`}>
-            <div className={`${styles.overlay} mt-2`}>
-                <div className={`${styles.brand}`}>
-                    <Badge bg='dark'>
-                        {brandName}
-                    </Badge>
+            <Link to={`/details/${_id}`} className="text-decoration-none">
+                <div className={`${styles.overlay} mt-2`}>
+                    <div className={`${styles.brand}`}>
+                        <Badge bg='dark'>
+                            {brandName}
+                        </Badge>
+                    </div>
+                    <div className={`${styles.productName} `}>
+                        <Badge>
+                            {title.split(' ').slice(0, 3).join(' ')}
+                        </Badge>
+                    </div>
                 </div>
-                <div className={`${styles.productName} `}>
-                    <Badge>
-                        {title.split(' ').slice(0, 3).join(' ')}
-                    </Badge>
+                <div className={`${styles.imageContainer}`}>
+                    <img src={imageCover} className={`${styles.image}  w-100`} alt="" />
+                    <div className={`${styles.overlay}`}>
+                    </div>
+                    <div className={`${styles.cat} position-absolute `}>
+                        <Badge>
+                            {categoryName}
+                        </Badge>
+                    </div>
                 </div>
-            </div>
-            <div className={`${styles.imageContainer}`}>
-                <img src={imageCover} className={`${styles.image}  w-100`} alt="" />
-                <div className={`${styles.overlay}`}>
-                </div>
-                <div className={`${styles.cat} position-absolute `}>
-                    <Badge>
-                        {categoryName}
-                    </Badge>
-                </div>
-                <div className={`${styles.price}`}> ${price}</div>
-
-            </div>
+            </Link>
+            {/* Content */}
             <div className={`${styles.content} `}>
                 <div className={`${styles.infoContainer} d-flex flex-column p-2 overflow-hidden`}>
                     <Row>
+                        <div className={`${styles.price}`}> ${price}</div>
                         <Col md={12} className='d-flex align-items-center justify-content-center'>
                             <div className="rating ">
                                 <ReactStars size={22} value={ratingsAverage} isHalf={true} edit={false}
@@ -52,7 +55,6 @@ export default function ProductCard({ product }) {
                             <Stack direction="horizontal" className="d-flex align-items-center flex-wrap mb-3" gap={2}>
                                 <div className='me-auto d-flex align-items-center justify-content-center'>
                                     Qty:<Badge className={`${styles.badge}`}>{quantity}</Badge>
-
                                 </div>
                                 <div className='ms-auto d-flex align-items-center justify-content-center'>
                                     Sold:<Badge className={`${styles.badge}`}>{sold}</Badge>
@@ -61,7 +63,7 @@ export default function ProductCard({ product }) {
                         </Col>
                         <Col md={12} >
                             <div className={`${styles.heart} `}>
-                            <Heart   isClick={isClick}  onClick={() => setClick(!isClick)} />
+                                <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
                             </div>
                         </Col>
                         <Col md={12} className={`${styles.buttonContainer}`}>

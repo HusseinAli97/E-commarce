@@ -120,3 +120,111 @@ body {
   height: 20px;
   border-radius: 50%;
 }
+.carousel-container {
+  display: flex;
+  align-items: center;
+}
+
+.slider-main {
+  flex: 1;
+}
+
+.slider-nav {
+  width: 100px; /* Adjust the width of the thumbnail section as needed */
+}
+.purple-ColorText {
+color: var(--lightPurple-color);
+  opacity: 1;
+}
+.buttonPurple {
+  border: var(--primary-color) solid 2px;
+  background-color: transparent;
+  color: var(--lightPurple-color);
+  opacity: 1;
+  transition: all .5s ease-in-out;
+}
+.buttonPurple:hover {
+  border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
+  background-color: var(--lightPurple-color);
+  color: white;
+  border: transparent solid 2px;
+}
+.buttonPurple:hover i {
+  animation: shake 0.5s  .5s linear;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(5deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(-5deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(5deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-5deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-5deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(5deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-5deg);
+  }
+}
+.go4268192979,.go2484888251 {
+
+position: absolute;
+left: 220px;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+.category {
+  font-size: .9rem;
+  font-weight: 400;
+  color: #666464f4;
+}
+.tab-content {
+  border: 2px solid #dee2e6 !important;
+  padding: 25px;
+  position: relative !important;
+  top: -16px;
+  border-top: transparent solid 2px !important;
+}
+.tabContainer li button{
+  color: var(--dark-color) !important;
+  font-size: .9rem;
+  font-weight: 600;
+  border-bottom: transparent;
+  border: 0 !important;
+}
+.tabContainer li button:hover {
+  border: 0 !important;
+  border-color: transparent !important;
+}
+.tabContainer li button.active  {
+  border: 2px solid !important;
+  border-color: var(--primary-color) var(--primary-color) transparent var(--primary-color) !important;
+  border-radius: 5px 5px 0 0 !important;
+  color: var(--lightPurple-color) !important;
+  padding-bottom: 1.5rem !important;
+
+}
+.tabContainer .nav-tabs {
+  border: 0 !important;
+}

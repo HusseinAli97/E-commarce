@@ -23,7 +23,7 @@ export default function TopBar() {
     }
     return (
         <>
-            <Navbar expand="sm" className={`navColor ${styles.topNav} `}>
+            <Navbar expand="sm" className={`navColor ${styles.topNav}  `}>
                 <Container className='border-bottom'>
                     <Navbar.Text className='d-flex align-items-center '>
                         <Form.Select size='sm' className={`${styles.formSelect}`} >
