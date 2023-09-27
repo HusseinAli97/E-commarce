@@ -99,13 +99,13 @@
 .heart{
     position: absolute;
     z-index: 2;
-    bottom: -100px;
+    bottom:-50px;
     left: 50%;
     transform: translateX(-50%);
     transition: all 0.5s ease-in-out;
 }
 .card:hover .heart{
-    bottom: -25px;
+    bottom: 20px;
 }
 
 

@@ -1,10 +1,14 @@
 import styles from './ProductCard.module.css'
 import { Col, Row, Badge, Stack } from 'react-bootstrap';
 import { useState } from 'react';
-import Heart from "react-animated-heart";
+import Heart from 'react-heart';
 import * as React from 'react';
 import ReactStars from "react-rating-stars-component";
 import { Link } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { CartContext } from '../../../context/Cart';
+
 
 
 
@@ -12,7 +16,21 @@ export default function ProductCard({ product }) {
     let { sold, category, imageCover, price, quantity, ratingsAverage, title, brand, _id } = product
     let { name: categoryName } = category
     let { name: brandName } = brand
-    let [isClick, setClick] = useState(false);
+    const [active, setActive] = useState(false)
+    let { addToCart, setCartLength } = useContext(CartContext)
+    const [inCart, setInCart] = useState(false);
+
+    const callCart = async (productId) => {
+        let { data } = await addToCart(productId)
+        setCartLength(data?.numOfCartItems)
+        if (data.status === 'success') {
+            toast.success(data.message, { position: "top-right" });
+            setInCart(true);
+        } else {
+            toast.error(data.message, { position: "top-right" });
+        }
+    }
+
     return (
         <div className={` ${styles.card}`}>
             <Link to={`/details/${_id}`} className="text-decoration-none">
@@ -28,7 +46,7 @@ export default function ProductCard({ product }) {
                         </Badge>
                     </div>
                 </div>
-                <div className={`${styles.imageContainer}`}>
+                <div className={`${styles.imageContainer} overflow-hidden`}>
                     <img src={imageCover} className={`${styles.image}  w-100`} alt="" />
                     <div className={`${styles.overlay}`}>
                     </div>
@@ -62,15 +80,17 @@ export default function ProductCard({ product }) {
                             </Stack>
                         </Col>
                         <Col md={12} >
-                            <div className={`${styles.heart} `}>
-                                <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
-                            </div>
+                                <div className={`${styles.heart}`} style={{ width: "2rem" } }>
+                                    <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.2} animationTrigger="both" className={`customHeart${active ? " active" : ""}`} />
+                                </div>
                         </Col>
                         <Col md={12} className={`${styles.buttonContainer}`}>
                             <button className={`${styles.button} ${styles.buyButton}`}>
-                                <i class="fa-solid fa-rotate-90  fa-money-check-dollar "></i>
+                                <i className="fa-solid fa-rotate-90  fa-money-check-dollar "></i>
                             </button>
-                            <button className={`${styles.button} ${styles.cartButton}`}>
+                            <button onClick={() => {
+                                callCart(_id)
+                            }} className={`${styles.button} ${styles.cartButton}`} >
                                 <i className="fa-solid fa-rotate-90  fa-cart-shopping"></i>
                             </button>
                         </Col>

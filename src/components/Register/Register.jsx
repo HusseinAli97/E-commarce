@@ -9,15 +9,18 @@ import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import styles from './Register.module.css';
 import { showForm } from '../../context/ShowRegister';
+
 export default function Register({ handleClose, show }) {
-    const {isLoginForm,setIsLoginForm} = useContext(showForm);
+    const { isLoginForm, setIsLoginForm } = useContext(showForm);
     const navigate = useNavigate();
+
     const switchToLoginForm = () => {
         setIsLoginForm(true);
     };
     const handleSuccessfulLogin = () => {
         handleClose();
-        navigate('/');
+        window.location.reload();
+        navigate("/");
     };
     return (
         <>

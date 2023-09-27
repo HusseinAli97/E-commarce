@@ -29,7 +29,6 @@ export default class AsNavFor extends Component {
 
     render() {
         const { images } = this.props;
-        console.log(images);
         return (
             <div>
                 <Row>

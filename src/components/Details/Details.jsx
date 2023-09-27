@@ -3,22 +3,36 @@ import styles from './Details.module.css'
 import axios from 'axios';
 // import { useQuery } from 'react-query';
 import ProductLoader from '../ProductLoader/ProductLoader';
-import { Container, Row, Col, Button, Nav, Tab, Tabs } from 'react-bootstrap';
-import Heart from "react-animated-heart";
+import { Container, Row, Col, Button, Nav, Tab, Tabs, Breadcrumb } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import AsNavFor from '../productDeatilsCarassoul/productDeatilsCarassoul';
 import ReactStars from "react-rating-stars-component";
-
-
+import { useContext } from 'react';
+import { toast } from 'react-toastify';
+import { CartContext } from '../../context/Cart';
+import BreadCrumb from '../BreadCrumb/BreadCrumb';
+import Heart from 'react-heart';
 
 export default function Details() {
     let params = useParams();
     let [isClick, setClick] = useState(false);
+    let [count, setCount] = useState(0);
     let [product, setProduct] = useState([]);
     let [isLoading, setIsLoading] = useState(true);
+    let { addToCart, setCartLength, updateProductQty, cartItems } = useContext(CartContext)
     const [key, setKey] = useState('Description');
+    const [active, setActive] = useState(false)
 
 
+    const callCart = async (productId) => {
+        let { data } = await addToCart(productId)
+        setCartLength(data?.numOfCartItems)
+        if (data.status === 'success') {
+            toast.success(data.message, { position: "top-right" });
+        } else {
+            toast.error(data.message, { position: "top-right" });
+        }
+    }
     async function getProduct(id) {
         let { data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
         setProduct(data.data)
@@ -27,6 +41,10 @@ export default function Details() {
     useEffect(() => {
         getProduct(params.id)
     }, [])
+
+    // useEffect(() => {
+    //     getUserCart()
+    // },[cartItems])
 
     // function getProduct(id) {
     //     return axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
@@ -42,29 +60,7 @@ export default function Details() {
                 </>
             ) : (
                 <>
-                    <Nav className={` px-0  px-4 pt-4 mt-5 ${styles.breadcrumbNav}`}>
-                        <ul class={`${styles.breadcrumb}`}>
-                            <li>
-                                <Link to="/" className={`${styles.breadcrumbItem}`}>
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link to="/products" className={`${styles.breadcrumbItem}`}>
-                                    Products
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    to={`/Details/${params.id}`}
-                                    className={`${styles.breadcrumbItem} ${styles.active}`}
-                                >
-                                    {product?.title.split(" ").slice(0, 3).join(" ")}
-                                </Link>
-                            </li>
-                            <li></li>
-                        </ul>
-                    </Nav>
+                    <BreadCrumb product={product} params={params} />
                     <Container fluid className="bg-light pb-5 mb-5">
                         <div className="topContent">
                             <Row className="px-5 ">
@@ -99,57 +95,14 @@ export default function Details() {
                                             <p className={`${styles.description} text-muted mb-2 `}>
                                                 {product?.description}
                                             </p>
-                                            <div className="QTY d-flex align-items-center mt-5 ">
-                                                <p className="m-0 me-4 ">QTY</p>
-                                                <div className="product-details-quantity ">
-                                                    <div className="input-group input-spinner">
-                                                        <div className="input-group-prepend">
-                                                            <button
-                                                                className="btn btn-decrement btn-spinner"
-                                                                type="button"
-                                                                style={{ minWidth: 26 }}
-                                                                onClick={(e) => {
-                                                                    document.querySelector(
-                                                                        'input[name="quantity"]'
-                                                                    ).value > 1 &&
-                                                                        document.querySelector(
-                                                                            'input[name="quantity"]'
-                                                                        ).value--;
-                                                                }}
-                                                            >
-                                                                <i className="fa fa-minus" />
-                                                            </button>
-                                                        </div>
-                                                        <input
-                                                            type="number"
-                                                            className="form-control text-center"
-                                                            min={1}
-                                                            max={100}
-                                                            required
-                                                            defaultValue={1}
-                                                            name="quantity"
-                                                        />
-                                                        <div className="input-group-append">
-                                                            <button
-                                                                className="btn btn-increment btn-spinner"
-                                                                type="button"
-                                                                style={{ minWidth: 26 }}
-                                                                onClick={() =>
-                                                                    document.querySelector(
-                                                                        'input[name="quantity"]'
-                                                                    ).value++
-                                                                }
-                                                            >
-                                                                <i className="fa fa-plus" />
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div
                                                 className={`${styles.buttonContainer} d-flex align-items-center mt-4 position-relative`}
                                             >
                                                 <Button
+                                                    onClick={() => {
+                                                        callCart(params.id)
+
+                                                    }}
                                                     className={`${styles.button} ${styles.addToCart} btn-lg buttonPurple me-5`}
                                                 >
                                                     <i className="fa fa-cart-shopping me-2 "></i>
@@ -158,12 +111,9 @@ export default function Details() {
                                                 <div
                                                     className={`${styles.heart} d-flex align-items-center  `}
                                                 >
-                                                    <Heart
-                                                        isClick={isClick}
-                                                        onClick={() => setClick(!isClick)}
-                                                        className={`p-0`}
-                                                    />
-                                                    <p className="m-0 ms-2 textHover ">
+                                                    <div className={`${styles.heart}`} style={{ width: "2rem" }}>
+                                                        <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.2} animationTrigger="both" className={`customHeart${active ? " active" : ""}`} />
+                                                    </div>                                                    <p className="m-0 ms-2 textHover ">
                                                         Add to Wishlist
                                                     </p>
                                                 </div>
@@ -335,7 +285,7 @@ export default function Details() {
                                         eventKey="Reviews"
                                         title={`Reviews (${product?.ratingsQuantity})`}
                                     >
-                                        <h3 className={`${styles.descTitle} mb-1`}> 
+                                        <h3 className={`${styles.descTitle} mb-1`}>
                                             Reviews ({product?.ratingsQuantity})
                                         </h3>
                                     </Tab>

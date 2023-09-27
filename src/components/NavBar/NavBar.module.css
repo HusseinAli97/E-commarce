@@ -1,9 +1,10 @@
-.wishListHover ,.cartHover{
+.wishListHover{
     transition: var(--transition);
 }
+
 .wishListHover:hover {
-    color:var(--waterMelon-color);
+    color: var(--waterMelon-color);
 }
-.cartHover:hover{
-    color:  var(--mustard-color);
-}
+
+
+

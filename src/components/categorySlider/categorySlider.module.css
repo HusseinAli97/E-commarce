@@ -1,0 +1,24 @@
+.categoryName{
+    font-weight: 700;
+    color: var(--lightBlue-color);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    letter-spacing: .025em;
+    text-shadow: 1px 1px .2px var(--dark-color);
+    margin-bottom: .7rem;
+    transition: all 0.3s ease-in-out;
+}
+.categoryImage{
+    height: 300px !important;
+    width: 100% !important;
+    border-radius: 10px !important;
+    opacity: .9 !important;
+    transition: all 0.3s ease-in-out;
+
+}
+.categorySlider:hover .categoryName{
+    color: var(--lightPurple-color);
+}
+.categorySlider:hover .categoryImage{
+    opacity: 1 !important;
+}

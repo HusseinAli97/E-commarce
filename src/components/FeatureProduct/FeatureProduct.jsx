@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 
 export default function FeatureProduct() {
     const allProductApi = ('https://ecommerce.routemisr.com/api/v1/products')
-
     function featureProduct(){
         return axios.get(allProductApi)
     }

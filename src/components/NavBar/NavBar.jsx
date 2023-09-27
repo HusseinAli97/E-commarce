@@ -7,11 +7,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../images/Color logo - no background.svg';
 import style from './NavBar.module.css';
 import { TokenContext } from '../../context/TokenContext';
+import DropDownCart from '../DropDownCart/DropDownCart';
 
 export default function NavBar() {
     const { token } = useContext(TokenContext);
-    const [isHidden, setIsHidden] = useState(token === null);
-
+    const [isHidden, setIsHidden] = useState(null);
     useEffect(() => {
         setIsHidden(token === null);
     }, [token]);
@@ -39,29 +39,25 @@ export default function NavBar() {
                     Brands
                 </Link>
                 <Link to="/categories" className="textHover fw-bold mx-3 nav-link">
-                Categories
+                    Categories
                 </Link>
             </Nav>
         </motion.div>
         <motion.div
-            initial={isHidden ? "hidden" : "visible"}
-            animate={isHidden ? "hidden" : "visible"}
+
             variants={variants}
             transition={{ duration: 0.5 }}
             className="ms-auto"
         >
             <Nav className="d-flex align-items-center justify-content-center">
-                <Link to="/wishlist" className="nav-link">
+                <Link to="/wishlist" className="nav-link">  
                     <i className={`fa-regular fa-heart wishListHover fa-lg me-2  ${style.wishListHover}`}></i>
                     <span className='pink-Color  text-white quantity'>0</span>
                 </Link>
-                <Link to="/cart" className="nav-link">
-                    <i className={`fas fa-shopping-cart cartHover fa-lg me-2 ${style.cartHover}`}></i> 
-                    <span className='mustard-Color  text-white quantity'>0</span>
-                </Link>
+                <DropDownCart />
             </Nav>
         </motion.div>
-    </div>);
+    </div >);
     return (
         <Navbar expand="md" className="">
             <Container fluid className="">
