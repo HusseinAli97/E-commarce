@@ -29,7 +29,7 @@
 /* General */
 body {
   font-family: 'Poppins', sans-serif;
-    background-color: var(--offWhite-color);
+    background-color: #e6eaec;
   font-size: var(--font-Size);
 }
 .textHover{
@@ -278,9 +278,6 @@ transform: translate(-50%, -50%);
   fill: var(--lightWaterMelon-color) !important;
   transition: fill 0.5s;
 }
-
-
-
 .buttonMain {
   border: var(--light-color) solid 2px;
   background-color: var(--lightBlue-color);
@@ -318,3 +315,5 @@ transform: translate(-50%, -50%);
 .buttonSec:hover i {
   animation: shake 0.5s  .5s linear;
 }
+
+

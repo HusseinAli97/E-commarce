@@ -77,7 +77,7 @@ export default function Login({ onSuccessfulLogin }) {
                 )}
             </div>
             {
-                showForgotPassword ? <ForgetPassword /> : 
+                showForgotPassword ? <ForgetPassword backToLogin={handleSwitchForgotPassword} /> : 
                 <motion.div
                 key="login-form"
                 initial={{ opacity: 0, rotateY: -180 }}
@@ -119,7 +119,7 @@ export default function Login({ onSuccessfulLogin }) {
                     :
                     <Button  variant="outline-primary" onClick={
                         handleSwitchForgotPassword
-                    } className=' btn text-white   position-absolute top-0 end-0'>
+                    } className=' btn text-white  position-absolute top-0 end-0'>
                         Login <i className="fa-solid fa-arrow-right"></i>
                     </Button>
                 }

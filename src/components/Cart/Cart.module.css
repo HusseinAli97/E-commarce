@@ -1,30 +1,3 @@
-.pageHeader {
-    padding: 3.5rem 0 2rem;
-    background-color: #ebebeb;
-    background-size: cover;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background: url('../../images/assits/Cart/page-header-bg.jpg');
-}
-
-.pageHeader h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 1rem;
-
-}
-
-.pageHeader h1 span {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--dark-color);
-    text-align: center;
-
-}
-
 .BreadCrumb {
     margin: 0;
     width: 500px !important;

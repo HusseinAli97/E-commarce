@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom'
 export default function Layout() {
     return (
         <>
-            <div className="container-fluid navBg ">
+            <div className="container-fluid shadow-lg navBg ">
                 <TopBar />
                 <NavBar />
             </div>

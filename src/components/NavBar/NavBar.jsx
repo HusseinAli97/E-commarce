@@ -59,7 +59,7 @@ export default function NavBar() {
         </motion.div>
     </div >);
     return (
-        <Navbar expand="md" className="">
+        <Navbar expand="md" className="shadow-lg py-3">
             <Container fluid className="">
                 <Link to="/" className="d-flex align-items-center justify-content-center">
                     <img src={logo} alt="logo" className="img-fluid" />

@@ -6,6 +6,7 @@ import { CartContext } from '../../context/Cart';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import { Link } from 'react-router-dom';
 import ProductLoader from '../ProductLoader/ProductLoader';
+import BgHeader from '../bgHeader/bgHeader';
 
 export default function Cart() {
     const { setCartLength, updateProductQty, cartItems, isLoading, deleteProductFromCart, toastfy } = useContext(CartContext)
@@ -29,14 +30,7 @@ export default function Cart() {
 
     return (
         <div className="main">
-            <div className={`${styles.pageHeader} text-center`}>
-                <Container fluid>
-                    <h1 className={`${styles.pageTtile}`}>
-                        Shopping Cart
-                        <span>Shop</span>
-                    </h1>
-                </Container>
-            </div>
+            <BgHeader mainName="Shopping Cart" subName="shop" />
             <div className={`${styles.pageContent} pb-5`}>
                 {isLoading ? <>
                     <ProductLoader />
