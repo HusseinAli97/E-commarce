@@ -25,11 +25,27 @@ export default function Register({ handleClose, show }) {
     return (
         <>
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar theme="colored" />
-            <Modal show={show} centered onHide={handleClose} className={`${styles.bg}`} size='lg'  backdrop="static">
+            <Modal show={show} centered onHide={handleClose} className={`${styles.bg}`} size='lg' backdrop="static">
                 <Container className={`p-0 shadow  ${styles.bgCard}  position-relative`}>
-                    <Row className='py-5'>
-                        <Col xs={10} className={`mx-auto ${styles.bgForm}`}>
-                            <div className="text-center py-1 mb-2 position-absolute bottom-0 start-50 translate-middle ">
+                    <Row className='px-5 pt-5 pb-3'>
+                        <Col xs={12} className={`mx-auto ${styles.bgForm} position-relative`}>
+                            <div className="d-flex flex-column w-100 justify-content-center align-items-center position-relative">
+                                <div className="text-center">
+                                    <img src={logo} width={"150px"} alt="logo" />
+                                    <h4 className="mt-1 mb-2 pb-1">We are GLAM Team</h4>
+                                </div>
+                                <p>Please {isLoginForm ? 'log in' : 'sign up'} to continue</p>
+                                {isLoginForm ? (
+                                    <Login onSuccessfulLogin={handleSuccessfulLogin} />
+                                ) : (
+                                    <SignUp switchToLoginForm={switchToLoginForm} />
+                                )}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row className=''>
+                        <Col xs={12} className="text-center">
+                        <div className={`text-center mb-2 ${styles.toggleContainer}`}>
                                 {isLoginForm ? (
                                     <motion.div
                                         key="buttonSignup"
@@ -38,7 +54,7 @@ export default function Register({ handleClose, show }) {
                                         exit={{ opacity: 0, rotateY: 180 }}
                                         transition={{ duration: 0.5 }}
                                     >
-                                        <div className="d-flex flex-row align-items-center justify-content-center pb-1 mb-1 mt-2   ">
+                                        <div className={`d-flex align-items-center justify-content-center pb-1 mb-1 mt-2 ${styles.toggleBtns}`}>
                                             <p className="mb-0">Don't have an account?</p>
                                             <Button
                                                 className='mx-2'
@@ -60,7 +76,7 @@ export default function Register({ handleClose, show }) {
                                         exit={{ opacity: 0, rotateY: 180 }}
                                         transition={{ duration: 0.5 }}
                                     >
-                                        <div className="d-flex flex-row align-items-center justify-content-center pb-1 mb-1 mt-2   ">
+                                        <div className={`d-flex align-items-center justify-content-center pb-1 mb-1 mt-2 ${styles.toggleBtns}`}>
                                             <p className="mb-0"> Have an account?</p>
                                             <Button
                                                 className='mx-2'
@@ -74,18 +90,6 @@ export default function Register({ handleClose, show }) {
                                             </Button>
                                         </div>
                                     </motion.div>
-                                )}
-                            </div>
-                            <div className="d-flex flex-column w-100 justify-content-center align-items-center position-relative">
-                                <div className="text-center">
-                                    <img src={logo} width={"150px"} alt="logo" />
-                                    <h4 className="mt-1 mb-2 pb-1">We are GLAM Team</h4>
-                                </div>
-                                <p>Please {isLoginForm ? 'log in' : 'sign up'} to continue</p>
-                                {isLoginForm ? (
-                                    <Login onSuccessfulLogin={handleSuccessfulLogin} />
-                                ) : (
-                                    <SignUp switchToLoginForm={switchToLoginForm} />
                                 )}
                             </div>
                         </Col>

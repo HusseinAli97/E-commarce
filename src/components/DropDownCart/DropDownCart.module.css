@@ -1,6 +1,7 @@
 .cartHover {
     transition: var(--transition);
 }
+
 .cartHover:hover {
     color: var(--mustard-color);
 }
@@ -9,19 +10,22 @@
     max-height: 450px;
     width: 350px;
     z-index: 100;
-    padding: 22px 30px 20px 30px;
+    /* padding: 22px 30px 20px 30px; */
     overflow-anchor: none;
     -webkit-box-shadow: 5px 10px 16px rgba(51, 51, 51, .05), -5px 10px 16px rgba(51, 51, 51, .05);
     box-shadow: 5px 10px 16px rgba(51, 51, 51, .05), -5px 10px 16px rgba(51, 51, 51, .05);
     background-color: #fff;
+    overflow: hidden;
+
 }
+
 @media (max-width: 768px) {
     .dropdown {
         position: absolute !important;
-        right:  50% !important;
+        right: 50% !important;
     }
 }
-    
+
 
 .dropdownItem {
     position: relative;
@@ -30,29 +34,35 @@
     padding: 1.6rem 2.4rem 1.6rem 0;
     -webkit-box-shadow: none;
     box-shadow: none;
-    margin: 0!important;
+    margin: 0 !important;
     border: none;
     border-bottom: 1px solid #ebebeb;
-    box-shadow: none!important;
+    box-shadow: none !important;
 }
-.dropdownWrapper{
+
+
+.dropdownWrapper {
     max-height: 27.9rem;
     margin-top: -1rem;
     overflow-y: auto;
     scrollbar-width: none !important;
+    padding: 22px 30px 20px 30px;
+
 }
-.dropdownWrapper::-webkit-scrollbar{
+
+.dropdownWrapper::-webkit-scrollbar {
     display: none !important;
     scrollbar-width: none !important;
 }
 
-.productDetails{
+.productDetails {
     font-weight: 400;
     max-width: 150px;
     font-size: .8rem;
     color: #999;
     text-align: left;
 }
+
 .productTitle {
     color: var(--lightPurple-color);
     font-weight: 600;
@@ -61,19 +71,23 @@
     text-align: left;
     margin-bottom: .4rem;
 }
-.imgContainer{
+
+.imgContainer {
     position: relative;
     max-width: 60px;
     margin: 0 0 0 auto;
 }
-.imgLink{
+
+.imgLink {
     display: block;
     width: 100%;
     height: auto;
 }
-.productPrice{
+
+.productPrice {
     font-weight: 700 !important;
 }
+
 .imgLink img {
     display: block;
     max-width: 100%;
@@ -83,7 +97,8 @@
     vertical-align: middle;
     border-style: none;
 }
-.removeButton{
+
+.removeButton {
     position: absolute;
     top: 50%;
     right: 0;
@@ -95,13 +110,14 @@
     color: #ccc;
     font-size: .7rem;
 }
-.dropdownActions{
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 50px;
-    left: 0
+
+.dropdownActions {
+    position: relative;
+    width: 100% !important;
+    padding: 0 ;
+    z-index: 2;
 }
-.dropdownItem:first-child{
-    margin-top: 125px !important;
+
+.dropdownItem:first-child {
+    /* margin-top: 125px !important; */
 }
