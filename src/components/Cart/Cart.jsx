@@ -45,6 +45,7 @@ export default function Cart() {
                                             striped
                                             variant="white"
                                             hover
+                                            responsive="sm"
                                             size="sm"
                                             className={`table ${styles.tableCart} table-mobile`}>
                                             <thead>
@@ -53,7 +54,7 @@ export default function Cart() {
                                                     <th>Price</th>
                                                     <th>Quantity</th>
                                                     <th>Total</th>
-                                                    <th />
+                                                    <th>Del</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -77,10 +78,10 @@ export default function Cart() {
                                                         </td>
                                                         <td className={`${styles.priceCol}`}>{item.price} <span className="fs-6">EGP</span></td>
                                                         <td className={`${styles.quantityCol} `}>
-                                                            <div className="w-50 mx-auto">
+                                                            <div className=" text-center mx-auto ">
                                                                 <input
                                                                     type="number"
-                                                                    className="form-control text-center"
+                                                                    className="form-control text-center w-100"
                                                                     min={1}
                                                                     max={10000}
                                                                     required

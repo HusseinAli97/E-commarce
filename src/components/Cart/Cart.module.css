@@ -90,6 +90,9 @@
     font-size: 1rem;
     color: var(--dark-color) !important;
 }
+.quantityCol{
+    width: 1rem;
+}
 
 .summaryContainer {
     background-color: #fff;
