@@ -25,7 +25,7 @@ export default function HomeSlider() {
                 loop={true}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 2000,
+                    delay: 6000,
                 }}
                 className={styles.swiper}
             >
@@ -131,9 +131,7 @@ export default function HomeSlider() {
                     </Container>
                 </SwiperSlide>
             </Swiper>
-            <div className={`${styles.autoScrolls}`}>
             <CategorySlider />
-            </div>
         </Container>
     );
 }

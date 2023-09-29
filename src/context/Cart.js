@@ -7,11 +7,10 @@ import { toast } from "react-toastify";
 export let CartContext = createContext();
 
 export default function CartProvider({ children }) {
-    const userToken = localStorage.getItem('userToken')
     const [isLoading, setIsLoading] = useState(true)
     const baseUrl = 'https://ecommerce.routemisr.com'
     const headers = {
-        token: userToken
+        token: localStorage.getItem('userToken')
     }
     let [cartLength, setCartLength] = useState(0);
     let [cartItems, setCartItems] = useState([]);
@@ -30,7 +29,9 @@ export default function CartProvider({ children }) {
     }
 
     useEffect(() => {
-        getUserCart();
+        if(localStorage.getItem('userToken')) {
+            getUserCart();
+        }
     }, []);
 
     function updateProductQty(productId, count) {

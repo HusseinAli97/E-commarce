@@ -8,26 +8,63 @@ import { Link } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { CartContext } from '../../../context/Cart';
+import { wishListContext } from '../../../context/WishList';
 
 
 
 
 export default function ProductCard({ product }) {
-    let { sold, category, imageCover, price, quantity, ratingsAverage, title, brand, _id } = product
-    let { name: categoryName } = category
-    let { name: brandName } = brand
-    const [active, setActive] = useState(false)
-    let { addToCart, setCartLength } = useContext(CartContext)
-    const [inCart, setInCart] = useState(false);
+    const [likedProducts, setLikedProducts] = useState({});
+    const { sold, category, imageCover, price, quantity, ratingsAverage, title, brand, _id } = product
+    const { name: categoryName } = category
+    const { name: brandName } = brand
+    const [like, setLike] = useState(false)
+    const { addToCart, setCartLength, } = useContext(CartContext)
+    const { addToWishList, wishListItems, deleteFromWshList, wishListId} = useContext(wishListContext)
 
     const callCart = async (productId) => {
         let { data } = await addToCart(productId)
         setCartLength(data?.numOfCartItems)
         if (data.status === 'success') {
             toast.success(data.message, { position: "top-right" });
-            setInCart(true);
         } else {
             toast.error(data.message, { position: "top-right" });
+        }
+    }
+    useEffect(() => {
+        const initialLikedProducts = {};
+        wishListId.forEach((productId) => {
+            initialLikedProducts[productId] = true;
+        });
+        setLikedProducts(initialLikedProducts);
+    }, [wishListItems]);
+
+
+    function handelWishList(id) {
+        if (likedProducts[id]) {
+            // Remove the product from the wish list
+            deleteFromWshList(id)
+                .then((response) => {
+                    if (response.data.status === 'success') {
+                        // Update the likedProducts state
+                        setLikedProducts((prevState) => ({
+                            ...prevState,
+                            [id]: false,
+                        }));
+                    }
+                })
+        } else {
+            // Add the product to the wish list
+            addToWishList(id)
+                .then((response) => {
+                    if (response.data.status === 'success') {
+                        // Update the likedProducts state
+                        setLikedProducts((prevState) => ({
+                            ...prevState,
+                            [id]: true,
+                        }));
+                    }
+                })
         }
     }
 
@@ -80,9 +117,18 @@ export default function ProductCard({ product }) {
                             </Stack>
                         </Col>
                         <Col md={12} >
-                                <div className={`${styles.heart}`} style={{ width: "2rem" } }>
-                                    <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.2} animationTrigger="both" className={`customHeart${active ? " active" : ""}`} />
-                                </div>
+                            <div className={`${styles.heart}`} style={{ width: "2rem" }}>
+                                <Heart
+                                
+                                    isActive={likedProducts[_id]||false}
+                                    onClick={() => {
+                                        handelWishList(_id);
+                                    }}
+                                    animationScale={1.2}
+                                    animationTrigger="both"
+                                    className={`customHeart${likedProducts[_id] ? ' active' : ''}`}
+                                />
+                            </div>
                         </Col>
                         <Col md={12} className={`${styles.buttonContainer}`}>
                             <button className={`${styles.button} ${styles.buyButton}`}>

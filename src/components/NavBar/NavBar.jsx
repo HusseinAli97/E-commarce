@@ -8,14 +8,15 @@ import logo from '../../images/Color logo - no background.svg';
 import style from './NavBar.module.css';
 import { TokenContext } from '../../context/TokenContext';
 import DropDownCart from '../DropDownCart/DropDownCart';
+import { wishListContext } from '../../context/WishList';
 
 export default function NavBar() {
     const { token } = useContext(TokenContext);
     const [isHidden, setIsHidden] = useState(null);
+    const { wishListCount,getUserWishList } = useContext(wishListContext)
     useEffect(() => {
         setIsHidden(token === null);
     }, [token]);
-
     const variants = {
         hidden: { opacity: 0, x: '100%' },
         visible: { opacity: 1, x: 0 },
@@ -44,16 +45,23 @@ export default function NavBar() {
             </Nav>
         </motion.div>
         <motion.div
-
             variants={variants}
             transition={{ duration: 0.5 }}
             className="ms-auto"
         >
             <Nav className="d-flex align-items-center justify-content-center">
-                <Link to="/wishlist" className="nav-link">  
-                    <i className={`fa-regular fa-heart wishListHover fa-lg me-2  ${style.wishListHover}`}></i>
-                    <span className='pink-Color  text-white quantity'>0</span>
+                    <div className="d-flex align-items-center justify-content-center" >
+                <Link to="/wishlist"  className="nav-link">
+                        <i className={`fa-regular fa-heart wishListHover fa-lg me-2  ${style.wishListHover}`}></i>
+                        {wishListCount ?
+                            <span className='bg-dark text-white quantity'>
+                                {wishListCount}
+                            </span>
+                            :
+                            <i className='fa fa-spinner fa-spin'></i>
+                        }
                 </Link>
+                    </div>
                 <DropDownCart />
             </Nav>
         </motion.div>

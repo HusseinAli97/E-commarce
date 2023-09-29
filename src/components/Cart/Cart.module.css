@@ -50,15 +50,17 @@
 
 .productName {
     font-size: 1.1rem;
-    font-weight: 700;
-    color: #212529;
+    font-weight: 600 !important;
+    color: white;
     text-align: center;
+    letter-spacing: .15rem;
     margin-bottom: .5rem;
     padding: 0;
-    line-height: 1.5;
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: var(--sec-Font);
+    text-shadow:
+        -1px 0px 0px var(--primary-color),
+        1px 0px 0px var(--primary-color),
+        0px -1px 0px var(--primary-color),
+        0px 1px 0px var(--primary-color);
 }
 
 .productMedia {
@@ -72,7 +74,17 @@
     border-radius: 5%;
 }
 
-.priceCol,
+.priceCol {
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow:
+        -1px 0px 0px var(--primary-color),
+        1px 0px 0px var(--primary-color),
+        0px -1px 0px var(--primary-color),
+        0px 1px 0px var(--primary-color);
+}
+
 .totalCol {
     font-weight: 400;
     font-size: 1rem;
@@ -83,15 +95,16 @@
     background-color: #fff;
     padding: 25px 15px;
     border-radius: 5px;
-    box-shadow: var(--box-shadow) ;
+    box-shadow: var(--box-shadow);
     transition: all 0.5s ease-in-out;
     position: relative;
     z-index: 10 !important;
     max-height: 700px;
     min-height: 650px;
 }
+
 .summaryContainer:hover {
-    transform:rotateX(-45deg) translateZ(45);
+    transform: rotateX(-45deg) translateZ(45);
     box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
@@ -140,12 +153,13 @@
     text-decoration: none;
 }
 
-.summaryActions{
+.summaryActions {
     position: absolute;
     left: 0;
     right: 0;
     top: 100%;
 }
+
 /* Media Queries for Responsive Design (adjust as needed) */
 @media (max-width: 767px) {
     .productCol {
@@ -174,7 +188,7 @@
 }
 
 .btn {
-    background-color: var(--primary-color) ;
+    background-color: var(--primary-color);
     color: #fff;
     font-size: 18px;
     padding: 10px 20px;

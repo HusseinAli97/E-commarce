@@ -38,7 +38,7 @@ export default function Cart() {
                     <BreadCrumb product={{ title: "Shopping Cart" }} />
                     {cartList?.length !== 0 ? (
                         <div className="cart">
-                            <Container fluid className='pb-5'>
+                            <Container fluid className='pb-5 '>
                                 <Row className="pb-5">
                                     <Col lg={9} className='p-0'>
                                         <Table
@@ -66,7 +66,7 @@ export default function Cart() {
                                                                         <img
                                                                             src={item.product.imageCover}
                                                                             alt="product"
-                                                                            className="img-fluid"
+                                                                            className="img-fluid rounded-4"
                                                                         />
                                                                     </Link>
                                                                 </div>
@@ -75,7 +75,7 @@ export default function Cart() {
                                                                 </h4>
                                                             </div>
                                                         </td>
-                                                        <td className={`${styles.priceCol}`}>{item.price}EGP</td>
+                                                        <td className={`${styles.priceCol}`}>{item.price} <span className="fs-6">EGP</span></td>
                                                         <td className={`${styles.quantityCol} `}>
                                                             <div className="w-50 mx-auto">
                                                                 <input
@@ -163,12 +163,10 @@ export default function Cart() {
                                                             Estimate for Your Country
                                                         </td>
                                                         <td className={`${styles.summaryValue}`}>
-                                                            <a
-                                                                href="/change-address"
-                                                                className={`${styles.changeAddressLink}`}
-                                                            >
+                                                            <Link to={'/'}
+                                                                className={`${styles.changeAddressLink}`}>
                                                                 Change address
-                                                            </a>
+                                                            </Link>
                                                         </td>
                                                     </tr>
                                                     <tr className={`${styles.summaryTotal}`}>
@@ -198,17 +196,17 @@ export default function Cart() {
                             </Container>
                         </div>
                     ) : (
-                        <Container fluid className="bg-light py-5 my-5 d-flex justify-content-center align-items-center">
-                        <div className={`${styles.emptyCart}`}>
-                            <h1 className="text-center">Your Cart is Empty</h1>
-                            <p className="text-center">It looks like your cart is empty. Start shopping now!</p>
-                            <div className="text-center mt-4">
-                                <Link to="/" className={`${styles.btn} `}>
-                                    <span>Shop Now</span>
-                                </Link>
+                        <Container fluid className="emptyContainer bg-light py-5 my-5 d-flex justify-content-center align-items-center">
+                            <div className={`${styles.emptyCart}`}>
+                                <h1 className="text-center">Your Cart is Empty</h1>
+                                <p className="text-center">It looks like your cart is empty. Start shopping now!</p>
+                                <div className="text-center mt-4">
+                                    <Link to="/" className={`${styles.btn} `}>
+                                        <span>Shop Now</span>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
-                    </Container>
+                        </Container>
                     )}
                 </>}
             </div>

@@ -100,19 +100,19 @@ export default function SignUp({ switchToLoginForm }) {
                     </Col>
                     <Col md={6}>
                         <FloatingLabel controlId="floatingEmail" label="Email address" className="mb-2">
-                            <Form.Control type="email" placeholder="Email address" name='email' value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                            <Form.Control type="email" placeholder="Email address" autoComplete='off'    name='email' value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                         </FloatingLabel>
                     </Col>
                 </Row>
                 <Row>
                     <Col md={6}>
                         <FloatingLabel controlId="floatingPassword" label="Password" className="mb-2">
-                            <Form.Control type="password" placeholder="Password" name='password' value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                            <Form.Control type="password" placeholder="Password" autoComplete='off'  name='password' value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                         </FloatingLabel>
                     </Col>
                     <Col md={6}>
                         <FloatingLabel controlId="floatingrePassword" label="Confirm Password" className="mb-2">
-                            <Form.Control type="password" placeholder="Confirm Password" name='rePassword' value={formik.values.rePassword} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                            <Form.Control type="password" placeholder="Confirm Password" autoComplete='off' name='rePassword' value={formik.values.rePassword} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                         </FloatingLabel>
                     </Col>
                 </Row>

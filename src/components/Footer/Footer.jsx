@@ -4,8 +4,15 @@ import styles from './Footer.module.css'
 export default function Footer() {
     return (
         // <Container fluid property='footer' className={`bg-dark ${localStorage.getItem('userToken')?'':"fixed-bottom"} py-3`}>
-        <Container fluid property='footer' className={`bg-dark  py-3`}>
-            <p className='text-center text-light'>© 2022 Copyright</p>
-        </Container>
+        <>
+            {
+                localStorage.getItem('userToken') &&
+                <Container fluid property='footer' className={`bg-dark ${styles.footer} py-3`}>
+                    <div className="text-center text-white">
+                        <p>Copyright © 2022 All rights reserved</p>
+                    </div>
+                </Container>
+            }
+        </>
     )
 }

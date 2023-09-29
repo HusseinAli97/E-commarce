@@ -46,9 +46,3 @@
     letter-spacing: -.025em;
     text-shadow: 2px 2px 2px white;
 }
-.autoScrolls{
-    overflow: hidden;
-    position: relative;
-    top: -80px;
-    z-index: 1;
-}

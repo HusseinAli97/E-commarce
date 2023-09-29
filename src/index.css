@@ -24,27 +24,33 @@
   --sec-Font: 'Encode Sans', sans-serif;
   --font-Size: calc(15px + .059231vw);
 }
+
 /* End */
 
 /* General */
 body {
   font-family: 'Poppins', sans-serif;
-    background-color: #e6eaec;
+  background-color: #e6eaec;
   font-size: var(--font-Size);
 }
-.textHover{
+
+.textHover {
   transition: var(--transition);
 }
-.textHover:hover{
+
+.textHover:hover {
   color: var(--lightPurple-color);
 }
+
 .navColor {
   padding: 0;
 }
-.navBg{
+
+.navBg {
   background-color: var(--light-color);
   color: var(--dark-color) !important;
 }
+
 /* End */
 
 .gradient-custom-2 {
@@ -53,9 +59,11 @@ body {
   background: -webkit-linear-gradient(to right, var(--lightBlue-color), var(--lightPurple-color), var(--lightPurple-color));
   background: linear-gradient(to right, var(--lightBlue-color), var(--lightPurple-color), var(--lightPurple-color));
 }
+
 .shadow {
   box-shadow: var(--box-shadow);
 }
+
 .lshadow {
   box-shadow: var(--lightShadow);
 }
@@ -66,6 +74,7 @@ body {
     height: 100vh !important;
   }
 }
+
 @media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
@@ -73,55 +82,52 @@ body {
   }
 }
 
-.textErorr{
+.textErorr {
   color: var(--lightBlue-color);
   opacity: 1;
   text-shadow: 1px 2px 10px var(--dark-color);
   font-size: .9rem;
 }
-.green-Color{
+
+.green-Color {
   background-color: var(--green-color);
   opacity: 1;
 }
-.blue-Color{
+
+.blue-Color {
   background-color: var(--lightBlue-color);
   opacity: 1;
 }
-.purple-Color{
+
+.purple-Color {
   background-color: var(--lightPurple-color);
   opacity: 1;
 }
-.bgPurple-Color{
+
+.bgPurple-Color {
   background-color: #8e79ede2;
 
 }
-.pink-Color{
-  background-color: var(--waterMelon-color) !important;
-  opacity: 1;
-  transition: var(--transition);
-}
-.pink-Color:hover{
-  background-color: transparent !important;
-  color: var(--waterMelon-color) !important;
-}
-.pink-Color:hover i {
-  animation: shake 0.5s  .5s linear;
-}
-.waterMelon-Color{
+
+.waterMelon-Color {
   background-color: var(--lightWaterMelon-color);
   opacity: 1;
 }
-.mustard-Color{
+
+.mustard-Color {
   background-color: var(--mustard-color);
   opacity: 1;
 }
-.iconHover{
+
+.iconHover {
   transition: var(--transition);
 }
-.nav-link:hover .iconHover{
+
+.nav-link:hover .iconHover {
   color: var(--lightWaterMelon-color) !important;
   rotate: -180deg;
 }
+
 .quantity {
   font-size: .8rem;
   display: inline-flex;
@@ -132,6 +138,7 @@ body {
   height: 20px;
   border-radius: 50%;
 }
+
 .carousel-container {
   display: flex;
   align-items: center;
@@ -142,12 +149,15 @@ body {
 }
 
 .slider-nav {
-  width: 100px; /* Adjust the width of the thumbnail section as needed */
+  width: 100px;
+  /* Adjust the width of the thumbnail section as needed */
 }
+
 .purple-ColorText {
-color: var(--lightPurple-color);
+  color: var(--lightPurple-color);
   opacity: 1;
 }
+
 .buttonPurple {
   border: var(--primary-color) solid 2px;
   background-color: transparent;
@@ -158,15 +168,18 @@ color: var(--lightPurple-color);
   transition: all .5s ease-in-out;
   border-radius: .3rem;
 }
+
 .buttonPurple:hover {
   border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
   background-color: var(--lightPurple-color);
   color: white;
   border: transparent solid 2px;
 }
+
 .buttonPurple:hover i {
-  animation: shake 0.5s  .5s linear;
+  animation: shake 0.5s .5s linear;
 }
+
 .buttonBlue {
   border: transparent solid 2px;
   background-color: transparent;
@@ -176,62 +189,79 @@ color: var(--lightPurple-color);
   transition: all .5s ease-in-out;
   border-radius: .3rem;
 }
+
 .buttonBlue:hover {
   border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
   background-color: var(--lightBlue-color);
   color: white;
   border: transparent solid 2px;
 }
+
 .buttonBlue:hover i {
-  animation: shake 0.5s  .5s linear;
+  animation: shake 0.5s .5s linear;
 }
+
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
   }
+
   10% {
     transform: translate(-1px, -2px) rotate(5deg);
   }
+
   20% {
     transform: translate(-3px, 0px) rotate(-5deg);
   }
+
   30% {
     transform: translate(3px, 2px) rotate(0deg);
   }
+
   40% {
     transform: translate(1px, -1px) rotate(5deg);
   }
+
   50% {
     transform: translate(-1px, 2px) rotate(-5deg);
   }
+
   60% {
     transform: translate(-3px, 1px) rotate(0deg);
   }
+
   70% {
     transform: translate(3px, 1px) rotate(-5deg);
   }
+
   80% {
     transform: translate(-1px, -1px) rotate(5deg);
   }
+
   90% {
     transform: translate(1px, 2px) rotate(0deg);
   }
+
   100% {
     transform: translate(1px, -2px) rotate(-5deg);
   }
 }
-.go4268192979,.go2484888251 {
 
-position: absolute;
-left: 220px;
-top: 50%;
-transform: translate(-50%, -50%);
+.go4268192979,
+.go2484888251 {
+
+  position: absolute;
+  left: 220px;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
+
 .category {
   font-size: .9rem;
   font-weight: 400;
   color: #666464f4;
 }
+
 .tab-content {
   border: 2px solid #dee2e6 !important;
   padding: 25px;
@@ -239,18 +269,21 @@ transform: translate(-50%, -50%);
   top: -16px;
   border-top: transparent solid 2px !important;
 }
-.tabContainer li button{
+
+.tabContainer li button {
   color: var(--dark-color) !important;
   font-size: .9rem;
   font-weight: 600;
   border-bottom: transparent;
   border: 0 !important;
 }
+
 .tabContainer li button:hover {
   border: 0 !important;
   border-color: transparent !important;
 }
-.tabContainer li button.active  {
+
+.tabContainer li button.active {
   border: 2px solid !important;
   border-color: var(--primary-color) var(--primary-color) transparent var(--primary-color) !important;
   border-radius: 5px 5px 0 0 !important;
@@ -258,26 +291,33 @@ transform: translate(-50%, -50%);
   padding-bottom: 1.5rem !important;
 
 }
+
 .tabContainer .nav-tabs {
   border: 0 !important;
 }
-.dropdown button::after{
+
+.dropdown button::after {
   display: none !important;
 }
-.dropdown-item:hover{
+
+.dropdown-item:hover {
   background: none;
 }
-.customHeart{
+
+.customHeart {
   transition: all .5s ease-in-out !important;
 }
+
 .customHeart:hover {
   fill: transparent !important;
   transition: fill 0.5s;
 }
+
 .active.customHeart:hover {
   fill: var(--lightWaterMelon-color) !important;
   transition: fill 0.5s;
 }
+
 .buttonMain {
   border: var(--light-color) solid 2px;
   background-color: var(--lightBlue-color);
@@ -288,14 +328,16 @@ transform: translate(-50%, -50%);
   transition: all .5s ease-in-out;
   border-radius: .3rem;
 }
+
 .buttonMain:hover {
   border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
   background-color: var(--lightBlue-color);
   color: white;
   border: transparent solid 2px;
 }
+
 .buttonMain:hover i {
-  animation: shake 0.5s  .5s linear;
+  animation: shake 0.5s .5s linear;
 }
 
 .buttonSec {
@@ -306,14 +348,53 @@ transform: translate(-50%, -50%);
   transition: all .5s ease-in-out;
   border-radius: .3rem;
 }
+
 .buttonSec:hover {
   border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
   background-color: var(--mustard-color);
   color: var(--dark-color);
   border: transparent solid 2px;
 }
+
 .buttonSec:hover i {
-  animation: shake 0.5s  .5s linear;
+  animation: shake 0.5s .5s linear;
 }
 
 
+.pink-Color {
+  background-color: var(--waterMelon-color) !important;
+}
+
+.mustard-Btn {
+  background-color: var(--mustard-color) !important;
+}
+
+.pink-Color:hover {
+  color: var(--waterMelon-color) !important;
+  border: 1px solid var(--waterMelon-color) !important;
+
+}
+
+.mustard-Btn:hover {
+  color: var(--mustard-color) !important;
+  border: 1px solid var(--mustard-color) !important;
+}
+
+.pink-Color:hover,
+.mustard-Btn:hover {
+  background-color: transparent !important;
+}
+
+.mustard-Btn:hover i,
+.pink-Color:hover i {
+  animation: shake 0.5s .5s linear;
+}
+
+.mustard-Btn,
+.pink-Color {
+  opacity: 1;
+  transition: var(--transition);
+}
+.emptyContainer{
+  height: 100vh;
+}

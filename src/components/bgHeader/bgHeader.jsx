@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap'
 export default function BgHeader(props) {
     return (
         <div className={`${styles.pageHeader} text-center`}>
-
             <Container fluid>
                 <div className={`${styles.loader}`}>
                     <p className={`${styles.text}`}>

@@ -41,7 +41,6 @@ export default function Register({ handleClose, show }) {
                                         <div className="d-flex flex-row align-items-center justify-content-center pb-1 mb-1 mt-2   ">
                                             <p className="mb-0">Don't have an account?</p>
                                             <Button
-                                                outline
                                                 className='mx-2'
                                                 variant='outline-warning'
                                                 onClick={() => {
@@ -64,7 +63,6 @@ export default function Register({ handleClose, show }) {
                                         <div className="d-flex flex-row align-items-center justify-content-center pb-1 mb-1 mt-2   ">
                                             <p className="mb-0"> Have an account?</p>
                                             <Button
-                                                outline
                                                 className='mx-2'
                                                 variant='outline-warning'
                                                 onClick={() => {

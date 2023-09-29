@@ -1,9 +1,12 @@
-import Slider from "react-slick";
 import styles from './categorySlider.module.css'
 import { useQuery } from "react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+
+import { Autoplay, FreeMode, Pagination, Navigation } from 'swiper/modules';
 
 
 export default function CategorySlider() {
@@ -11,31 +14,63 @@ export default function CategorySlider() {
         return axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)
     }
     let { data } = useQuery('categories', getCategories);
-    const settings = {
-        dots: false,
-        navigator: false,
-        infinite: true,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 5000,
-        cssEase: "ease",
-    };
     return (
         <div>
-            <Slider {...settings}>
+            <Swiper
+                spaceBetween={10}
+                slidesPerView={6}
+                freeMode={true}
+                loop={true}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 15,
+                    },
+                    1000: {
+                        slidesPerView: 4,
+                        spaceBetween: 10,
+                    },
+                    1050: {
+                        slidesPerView: 5,
+                        spaceBetween: 10,
+                    },
+                    1100: {
+                        slidesPerView: 6,
+                        spaceBetween: 10,
+                    }
+                }}
+                autoHeight={true}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay, FreeMode]}
+                className={styles.mySwiper}>
                 {data?.data.data.map((item, index) => {
                     return (
+                        <SwiperSlide key={index} className={styles.categoryCard}>
                             <div key={index} className={`${styles.categorySlider} p-2`}>
-                                <Link to={`/categories/${item.id}`} className='nav-link'>
+                                <div className={`${styles.categoryCard} position-relative`}>
                                     <img src={item.image} alt="" className={styles.categoryImage} />
-                                    <p className={`${styles.categoryName}`}>{item.name} </p>
-                                </Link>
+                                    <Link to={`/categories/${item.id}`} className='nav-link'>
+                                        <div className={styles.overlay}>
+                                            <p className={`${styles.categoryName} d-flex align-items-center justify-content-center m-0 me-1`}>{item.name}<i className="fas fa-arrow-right" /> </p>
+                                        </div>
+                                    </Link>
+                                </div>
                             </div>
+                        </SwiperSlide>
                     )
                 })}
-            </Slider>
-        </div>
+            </Swiper>
+        </div >
     );
 }
