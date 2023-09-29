@@ -8,7 +8,7 @@ export let wishListContext = createContext();
 
 export default function WishListProvider({ children }) {
     const [isLoading, setIsLoading] = useState(true)
-    const [wishListCount, setWishListCount] = useState(null);
+    const [wishListCount, setWishListCount] = useState(0);
     const [wishListId, setWishListId] = useState([]);
     const baseUrl = 'https://ecommerce.routemisr.com'
     const headers = {

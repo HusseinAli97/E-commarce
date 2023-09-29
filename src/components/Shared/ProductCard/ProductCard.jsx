@@ -18,7 +18,6 @@ export default function ProductCard({ product }) {
     const { sold, category, imageCover, price, quantity, ratingsAverage, title, brand, _id } = product
     const { name: categoryName } = category
     const { name: brandName } = brand
-    const [like, setLike] = useState(false)
     const { addToCart, setCartLength, } = useContext(CartContext)
     const { addToWishList, wishListItems, deleteFromWshList, wishListId} = useContext(wishListContext)
 

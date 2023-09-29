@@ -25,7 +25,7 @@ export default function Register({ handleClose, show }) {
     return (
         <>
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar theme="colored" />
-            <Modal show={show} centered onHide={handleClose} className={`${styles.bg}`} size='lg'>
+            <Modal show={show} centered onHide={handleClose} className={`${styles.bg}`} size='lg'  backdrop="static">
                 <Container className={`p-0 shadow  ${styles.bgCard}  position-relative`}>
                     <Row className='py-5'>
                         <Col xs={10} className={`mx-auto ${styles.bgForm}`}>

@@ -13,7 +13,7 @@ import { wishListContext } from '../../context/WishList';
 export default function NavBar() {
     const { token } = useContext(TokenContext);
     const [isHidden, setIsHidden] = useState(null);
-    const { wishListCount,getUserWishList } = useContext(wishListContext)
+    const { wishListCount, getUserWishList, isLoading } = useContext(wishListContext)
     useEffect(() => {
         setIsHidden(token === null);
     }, [token]);
@@ -50,18 +50,20 @@ export default function NavBar() {
             className="ms-auto"
         >
             <Nav className="d-flex align-items-center justify-content-center">
-                    <div className="d-flex align-items-center justify-content-center" >
-                <Link to="/wishlist"  className="nav-link">
+                <div className="d-flex align-items-center justify-content-center text-center" >
+                    <Link to="/wishlist" className="nav-link">
                         <i className={`fa-regular fa-heart wishListHover fa-lg me-2  ${style.wishListHover}`}></i>
                         {wishListCount ?
-                            <span className='bg-dark text-white quantity'>
+                            <span className='pink-Color text-white quantity'>
                                 {wishListCount}
                             </span>
                             :
-                            <i className='fa fa-spinner fa-spin'></i>
+                            isLoading ? <i className='fa fa-spinner fa-spin'></i> : <span className='pink-Color text-white quantity'>
+                                0
+                            </span>
                         }
-                </Link>
-                    </div>
+                    </Link>
+                </div>
                 <DropDownCart />
             </Nav>
         </motion.div>

@@ -7,7 +7,7 @@ import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function DropDownCart() {
-    const { cartLength, cartItems, deleteProductFromCart, setCartLength } = useContext(CartContext);
+    const { cartLength, cartItems, deleteProductFromCart, setCartLength, isLoading } = useContext(CartContext);
     const [cartList, setCartList] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const navigate = useNavigate();
@@ -33,7 +33,10 @@ export default function DropDownCart() {
                         cartLength ?
                             <span className='mustard-Color  text-white quantity' id='cart'>{cartLength}</span>
                             :
-                            <i className='fa fa-spinner fa-spin'></i>
+                            isLoading ?
+                                <i className='fa fa-spinner fa-spin'></i>
+                                :
+                                <span className='mustard-Color  text-white quantity' id='cart'>0</span>
                     }
                 </Dropdown.Toggle >
                 <Dropdown.Menu align="end" className={`border-0 ${style.dropdown}`} >
