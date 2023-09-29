@@ -26,9 +26,6 @@ const routes = createBrowserRouter([
         index: true,
         element: <ProtectRoutes><Home/></ProtectRoutes>
       },{
-        path: 'products',
-        element: <ProtectRoutes><Products/></ProtectRoutes>
-      },{
         path:'categories',
         element:<ProtectRoutes><Categories/></ProtectRoutes>
       },{

@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 import ProductLoader from '../ProductLoader/ProductLoader';
 import BgHeader from '../bgHeader/bgHeader';
 import { CartContext } from '../../context/Cart';
+import { priceContext } from '../../context/Price';
 export default function WishList() {
     const { wishListItems, deleteFromWshList, getUserWishList, isLoading } = useContext(wishListContext)
     const { addToCart, setCartLength, } = useContext(CartContext)
-
-
+    const { priceCHange } = useContext(priceContext);
 
     function handeDelFromWishList(productId) {
         deleteFromWshList(productId)
@@ -75,7 +75,18 @@ export default function WishList() {
                                                                     </p>
                                                                 </div>
                                                             </td>
-                                                            <td className={`${styles.priceCol}`}>{item.price} <span className="fs-6">EGP</span></td>
+                                                            <td className={`${styles.priceCol}`}>
+                                                                {
+                                                                    priceCHange === 'usd' ?
+                                                                        <>
+                                                                            {(item.price / 30).toFixed(2)}<span className="fs-6">$</span>
+                                                                        </>
+                                                                        :
+                                                                        <>
+                                                                            ${item.price}<span className="fs-6">EGP</span>
+                                                                        </>
+                                                                }
+                                                            </td>
                                                             <td className={`${styles.cartCol}`}>
                                                                 <Button className="bg-transparent w-50 p-2  text-white mustard-Btn border-0" onClick={() => { handeAddToCart(item.id) }} >
                                                                     <i className="fa fa-shopping-cart fa-lg" />
@@ -96,16 +107,16 @@ export default function WishList() {
                             </div>
                         ) : (
                             <Container fluid className="emptyContainer bg-light py-5 my-5 d-flex justify-content-center align-items-center" >
-                            <div className={`${styles.emptyWishList}`}>
-                                <h1 className="text-center">Your WishList is Empty </h1>
-                                <p className="text-center">It looks like your wishList is empty. You can add items to your wishList! </p>
-                                <div className="text-center mt-4">
-                                    <Link to="/" className={`${styles.btn} `}>
-                                        <span>Shop Now</span>
-                                    </Link>
+                                <div className={`${styles.emptyWishList}`}>
+                                    <h1 className="text-center">Your WishList is Empty </h1>
+                                    <p className="text-center">It looks like your wishList is empty. You can add items to your wishList! </p>
+                                    <div className="text-center mt-4">
+                                        <Link to="/" className={`${styles.btn} `}>
+                                            <span>Shop Now</span>
+                                        </Link>
+                                    </div>
                                 </div>
-                            </div>
-                        </Container>
+                            </Container>
                         )}
                     </>}
             </div>

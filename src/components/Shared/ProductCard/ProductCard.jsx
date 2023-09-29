@@ -9,6 +9,7 @@ import { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { CartContext } from '../../../context/Cart';
 import { wishListContext } from '../../../context/WishList';
+import { priceContext } from '../../../context/Price';
 
 
 
@@ -16,10 +17,11 @@ import { wishListContext } from '../../../context/WishList';
 export default function ProductCard({ product }) {
     const [likedProducts, setLikedProducts] = useState({});
     const { sold, category, imageCover, price, quantity, ratingsAverage, title, brand, _id } = product
+    const { priceCHange } = useContext(priceContext);
     const { name: categoryName } = category
     const { name: brandName } = brand
     const { addToCart, setCartLength, } = useContext(CartContext)
-    const { addToWishList, wishListItems, deleteFromWshList, wishListId} = useContext(wishListContext)
+    const { addToWishList, wishListItems, deleteFromWshList, wishListId } = useContext(wishListContext)
 
     const callCart = async (productId) => {
         let { data } = await addToCart(productId)
@@ -97,7 +99,14 @@ export default function ProductCard({ product }) {
             <div className={`${styles.content} `}>
                 <div className={`${styles.infoContainer} d-flex flex-column p-2 overflow-hidden`}>
                     <Row>
-                        <div className={`${styles.price}`}> ${price}</div>
+                        <div className={`${styles.price}`}>
+                            {
+                            priceCHange ==='usd'?
+                            `$${(price/30).toFixed(2)}`
+                            :
+                            `${price}EGP`
+                            }
+                        </div>
                         <Col md={12} className='d-flex align-items-center justify-content-center'>
                             <div className="rating ">
                                 <ReactStars size={22} value={ratingsAverage} isHalf={true} edit={false}
@@ -118,8 +127,8 @@ export default function ProductCard({ product }) {
                         <Col md={12} >
                             <div className={`${styles.heart}`} style={{ width: "2rem" }}>
                                 <Heart
-                                
-                                    isActive={likedProducts[_id]||false}
+
+                                    isActive={likedProducts[_id] || false}
                                     onClick={() => {
                                         handelWishList(_id);
                                     }}

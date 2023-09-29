@@ -16,19 +16,22 @@ import ShowFormProvider from './context/ShowRegister';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import CartProvider from './context/Cart';
 import WishListProvider from './context/WishList';
+import PriceProvider from './context/Price';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const query = new QueryClient();
 root.render(
     <QueryClientProvider client={query}>
-        <TokenProvider>
-            <WishListProvider>
-                <CartProvider>
-                    <ShowFormProvider>
-                        <App />
-                    </ShowFormProvider>
-                </CartProvider>
-            </WishListProvider>
-        </TokenProvider>
+        <PriceProvider>
+            <TokenProvider>
+                <WishListProvider>
+                    <CartProvider>
+                        <ShowFormProvider>
+                            <App />
+                        </ShowFormProvider>
+                    </CartProvider>
+                </WishListProvider>
+            </TokenProvider>
+        </PriceProvider>
     </QueryClientProvider>
 );

@@ -16,7 +16,7 @@ import CategorySlider from "../categorySlider/categorySlider";
 
 export default function HomeSlider() {
     return (
-        <Container fluid className={`p-0 px-1 `}>
+        <Container fluid className={`p-0 px-1 mt-5 `}>
             <Swiper
                 effect={"fade"}
                 grabCursor={true}

@@ -363,10 +363,13 @@ body {
 
 .pink-Color {
   background-color: var(--waterMelon-color) !important;
+  border: 1px solid transparent !important;
+
 }
 
 .mustard-Btn {
   background-color: var(--mustard-color) !important;
+  border: 1px solid transparent !important;
 }
 
 .pink-Color:hover {
@@ -395,6 +398,7 @@ body {
   opacity: 1;
   transition: var(--transition);
 }
-.emptyContainer{
+
+.emptyContainer {
   height: 100vh;
 }

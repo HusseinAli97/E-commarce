@@ -7,12 +7,16 @@ import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import { Link } from 'react-router-dom';
 import ProductLoader from '../ProductLoader/ProductLoader';
 import BgHeader from '../bgHeader/bgHeader';
+import { priceContext } from '../../context/Price';
+
 
 export default function Cart() {
     const { setCartLength, updateProductQty, cartItems, isLoading, deleteProductFromCart, toastfy } = useContext(CartContext)
     const [cartList, setCartList] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const [shippingPrice, setShippingPrice] = useState(0)
+    const { priceCHange } = useContext(priceContext);
+
 
     const handleProductCount = (productId, event) => {
         updateProductQty(productId, Number(event.target.value))
@@ -76,7 +80,18 @@ export default function Cart() {
                                                                 </h4>
                                                             </div>
                                                         </td>
-                                                        <td className={`${styles.priceCol}`}>{item.price} <span className="fs-6">EGP</span></td>
+                                                        <td className={`${styles.priceCol}`}>
+                                                            {
+                                                                priceCHange === 'usd' ?
+                                                                    <>
+                                                                        {(item.price / 30).toFixed(2)}<span className="fs-6">$</span>
+                                                                    </>
+                                                                    :
+                                                                    <>
+                                                                        {item.price}<span className="fs-6">EGP</span>
+                                                                    </>
+                                                            }
+                                                        </td>
                                                         <td className={`${styles.quantityCol} `}>
                                                             <div className=" text-center mx-auto ">
                                                                 <input
@@ -92,7 +107,18 @@ export default function Cart() {
                                                                 />
                                                             </div>
                                                         </td>
-                                                        <td className={`${styles.totalCol}`}>{item.price * item.count}EGP</td>
+                                                        <td className={`${styles.totalCol}`}>
+                                                            {
+                                                                priceCHange === 'usd' ?
+                                                                    <>
+                                                                        {((item.price * item.count) / 30).toFixed(2)}<span className="fs-6">$</span>
+                                                                    </>
+                                                                    :
+                                                                    <>
+                                                                        {item.price * item.count}<span className="fs-6">EGP</span>
+                                                                    </>
+                                                            }
+                                                        </td>
                                                         <td className="remove-col">
                                                             <Button onClick={() => handleDeleteProduct(item.product.id)} className="bg-transparent text-white pink-Color border-0">
                                                                 <i className="fa fa-trash fa-lg" />
@@ -143,7 +169,17 @@ export default function Cart() {
                                                                 />
                                                             </div>
                                                         </td>
-                                                        <td className={`${styles.summaryValue}`}>10.00EGP</td>
+                                                        <td className={`${styles.summaryValue}`}>
+                                                            {
+                                                                priceCHange === 'usd' ?
+                                                                    <>
+                                                                        {(10 / 30).toFixed(2)}$
+                                                                    </> :
+                                                                    <>
+                                                                        {10}EGP
+                                                                    </>
+                                                            }
+                                                        </td>
                                                     </tr>
                                                     <tr className={`${styles.summaryShippingRow}`}>
                                                         <td>
@@ -157,7 +193,17 @@ export default function Cart() {
                                                                 />
                                                             </div>
                                                         </td>
-                                                        <td className={`${styles.summaryValue}`}>20.00EGP</td>
+                                                        <td className={`${styles.summaryValue}`}>
+                                                            {
+                                                                priceCHange === 'usd' ?
+                                                                    <>
+                                                                        {(20 / 30).toFixed(2)}$
+                                                                    </> :
+                                                                    <>
+                                                                        {20}EGP
+                                                                    </>
+                                                            }
+                                                        </td>
                                                     </tr>
                                                     <tr className={`${styles.summaryShippingEstimate}`}>
                                                         <td className={`${styles.summaryLabel}`}>
@@ -172,7 +218,17 @@ export default function Cart() {
                                                     </tr>
                                                     <tr className={`${styles.summaryTotal}`}>
                                                         <td className={`${styles.summaryLabel}`}>Total:</td>
-                                                        <td className={`${styles.summaryValue}`}>{totalPrice + shippingPrice}EGP</td>
+                                                        <td className={`${styles.summaryValue}`}>
+                                                            {
+                                                                priceCHange === 'usd' ?
+                                                                <>
+                                                                {((totalPrice + shippingPrice) / 30).toFixed(2)}$
+                                                                </>:
+                                                                <>
+                                                                {totalPrice + shippingPrice}EGP
+                                                                </>
+                                                            }
+                                                            </td>
                                                     </tr>
                                                 </tbody>
                                             </Table>

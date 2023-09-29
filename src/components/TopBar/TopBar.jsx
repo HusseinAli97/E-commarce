@@ -4,31 +4,36 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate,redirect } from 'react-router-dom';
 import styles from './TopBar.module.css';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Register from '../Register/Register';
 import { motion } from 'framer-motion';
 import { TokenContext } from '../../context/TokenContext';
 import { showForm } from '../../context/ShowRegister';
+import { priceContext } from '../../context/Price';
 
 export default function TopBar() {
     const {show, setShow} = useContext(showForm);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    let { token, setToken } = useContext(TokenContext);
-    let navigate = useNavigate();
+    const { token, setToken } = useContext(TokenContext);
+    const {priceCHange, setPriceChange} = useContext(priceContext);
     const clrStorage = () => {
         localStorage.removeItem('userToken');
         setToken(null);
         window.location.reload();
+    }
+    function handelCurrncy(){
+        let currnt = document.querySelector('.currency').value;
+        setPriceChange(currnt);
     }
     return (
         <>
             <Navbar expand="sm" className={`navColor ${styles.topNav}  `}>
                 <Container className='border-bottom'>
                     <Navbar.Text className='d-flex align-items-center '>
-                        <Form.Select size='sm' className={`${styles.formSelect}`} >
-                            <option value="1">USD</option>
-                            <option value="2">EGP</option>
+                        <Form.Select size='sm' className={`${styles.formSelect} currency`} onChange={handelCurrncy} >
+                            <option value="usd">USD</option>
+                            <option value="egp">EGP</option>
                         </Form.Select>
                     </Navbar.Text>
                     <Navbar.Text className='d-flex align-items-center '>

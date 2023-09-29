@@ -33,9 +33,6 @@ export default function NavBar() {
                 <Link to="/" className="textHover fw-bold mx-3 nav-link">
                     Home
                 </Link>
-                <Link to="/products" className="textHover fw-bold mx-3 nav-link">
-                    Products
-                </Link>
                 <Link to="/brands" className="textHover fw-bold mx-3 nav-link">
                     Brands
                 </Link>
