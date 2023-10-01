@@ -17,6 +17,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import CartProvider from './context/Cart';
 import WishListProvider from './context/WishList';
 import PriceProvider from './context/Price';
+import AddressProvider from './context/Address';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const query = new QueryClient();
@@ -27,7 +28,9 @@ root.render(
                 <WishListProvider>
                     <CartProvider>
                         <ShowFormProvider>
-                            <App />
+                            <AddressProvider>
+                                <App />
+                            </AddressProvider>
                         </ShowFormProvider>
                     </CartProvider>
                 </WishListProvider>

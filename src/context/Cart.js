@@ -12,24 +12,27 @@ export default function CartProvider({ children }) {
     const headers = {
         token: localStorage.getItem('userToken')
     }
-    let [cartLength, setCartLength] = useState(0);
-    let [cartItems, setCartItems] = useState([]);
+    const [cartLength, setCartLength] = useState(0);
+    const [cartItems, setCartItems] = useState([]);
+    const [shippingPrice, setShippingPrice] = useState(0)
+    const [cartId, setCartId] = useState('');
 
     function getUserCart() {
         setIsLoading(true)
         return axios.get(`${baseUrl}/api/v1/cart`, {
             headers,
         })
-        .then((res) => {
-            setCartLength(res.data.numOfCartItems);
-            setCartItems(res.data);
-            setIsLoading(false)
-        })
-        .catch((err) => err);
+            .then((res) => {
+                setCartLength(res.data.numOfCartItems);
+                setCartItems(res.data);
+                setIsLoading(false)
+                setCartId(res?.data?.data?._id);
+            })
+            .catch((err) => err);
     }
-
+    
     useEffect(() => {
-        if(localStorage.getItem('userToken')) {
+        if (localStorage.getItem('userToken')) {
             getUserCart();
         }
     }, []);
@@ -40,11 +43,11 @@ export default function CartProvider({ children }) {
         }, {
             headers,
         })
-        .then((res) => {
-            setCartItems(res.data);
-            setIsLoading(false);
-        })
-        .catch((err) => err);
+            .then((res) => {
+                setCartItems(res.data);
+                setIsLoading(false);
+            })
+            .catch((err) => err);
     }
 
     function addToCart(productId) {
@@ -53,32 +56,45 @@ export default function CartProvider({ children }) {
         }, {
             headers,
         })
-        .then((res) => {
-            getUserCart();
-            return res;
-        })
-        .catch((err) => err);
+            .then((res) => {
+                getUserCart();
+                return res;
+            })
+            .catch((err) => err);
     }
     function deleteProductFromCart(productId) {
         return axios.delete(`${baseUrl}/api/v1/cart/${productId}`, {
             headers,
         })
-        .then((res) => {
-            setCartItems(res.data);
-            setIsLoading(false);
-            if (res.data.status === 'success') {
-                toast.success('Product removed from cart', { position: "top-right", autoClose: 1500 });
-            }else {
-                toast.error(res.data.message, { position: "top-right", autoClose: 1500 });
-            }
-            return res
-        })
-        .catch((err) => err);
+            .then((res) => {
+                setCartItems(res.data);
+                setIsLoading(false);
+                if (res.data.status === 'success') {
+                    toast.success('Product removed from cart', { position: "top-right", autoClose: 1500 });
+                } else {
+                    toast.error(res.data.message, { position: "top-right", autoClose: 1500 });
+                }
+                return res
+            })
+            .catch((err) => err);
     }
 
-    return(
-        <CartContext.Provider value={{addToCart,cartLength,setCartLength,getUserCart,updateProductQty,cartItems,isLoading,deleteProductFromCart}}>
+    return (
+        <CartContext.Provider
+            value={{
+                addToCart,
+                cartLength,
+                setCartLength,
+                getUserCart,
+                updateProductQty,
+                cartItems,
+                isLoading,
+                deleteProductFromCart,
+                shippingPrice,
+                setShippingPrice,
+            }}
+        >
             {children}
         </CartContext.Provider>
-    )
+    );
 }

@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Heart from 'react-heart';
 import * as React from 'react';
 import ReactStars from "react-rating-stars-component";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { CartContext } from '../../../context/Cart';
 import { wishListContext } from '../../../context/WishList';
 import { priceContext } from '../../../context/Price';
+
 
 
 
@@ -22,6 +23,7 @@ export default function ProductCard({ product }) {
     const { name: brandName } = brand
     const { addToCart, setCartLength, } = useContext(CartContext)
     const { addToWishList, wishListItems, deleteFromWshList, wishListId } = useContext(wishListContext)
+    const navigate = useNavigate();
 
     const callCart = async (productId) => {
         let { data } = await addToCart(productId)
@@ -101,10 +103,10 @@ export default function ProductCard({ product }) {
                     <Row>
                         <div className={`${styles.price}`}>
                             {
-                            priceCHange ==='usd'?
-                            `$${(price/30).toFixed(2)}`
-                            :
-                            `${price}EGP`
+                                priceCHange === 'usd' ?
+                                    `$${(price / 30).toFixed(2)}`
+                                    :
+                                    `${price}EGP`
                             }
                         </div>
                         <Col md={12} className='d-flex align-items-center justify-content-center'>
@@ -139,7 +141,10 @@ export default function ProductCard({ product }) {
                             </div>
                         </Col>
                         <Col md={12} className={`${styles.buttonContainer}`}>
-                            <button className={`${styles.button} ${styles.buyButton}`}>
+                            <button className={`${styles.button} ${styles.buyButton}`} onClick={() => {
+                                callCart(_id)
+                                navigate('/checkout')
+                            }}>
                                 <i className="fa-solid fa-rotate-90  fa-money-check-dollar "></i>
                             </button>
                             <button onClick={() => {

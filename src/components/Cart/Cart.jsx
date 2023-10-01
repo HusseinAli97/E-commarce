@@ -11,10 +11,9 @@ import { priceContext } from '../../context/Price';
 
 
 export default function Cart() {
-    const { setCartLength, updateProductQty, cartItems, isLoading, deleteProductFromCart, toastfy } = useContext(CartContext)
+    const { setCartLength, updateProductQty, cartItems, isLoading, deleteProductFromCart,shippingPrice, setShippingPrice } = useContext(CartContext)
     const [cartList, setCartList] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
-    const [shippingPrice, setShippingPrice] = useState(0)
     const { priceCHange } = useContext(priceContext);
 
 
@@ -140,7 +139,7 @@ export default function Cart() {
                                                     </tr>
                                                     <tr className={`${styles.summaryRow}`}>
                                                         <td className={`${styles.summaryLabel}`}>Shipping:</td>
-                                                        <td className={`${styles.summaryValue}`}>Free Shipping</td>
+                                                        <td className={`${styles.summaryValue}`}>{shippingPrice==0 ? 'Free':shippingPrice == 10 ? 'Standard' : 'Express'}</td>
                                                     </tr>
                                                     <tr className={`${styles.summaryShippingRow}`}>
                                                         <td>
@@ -221,14 +220,14 @@ export default function Cart() {
                                                         <td className={`${styles.summaryValue}`}>
                                                             {
                                                                 priceCHange === 'usd' ?
-                                                                <>
-                                                                {((totalPrice + shippingPrice) / 30).toFixed(2)}$
-                                                                </>:
-                                                                <>
-                                                                {totalPrice + shippingPrice}EGP
-                                                                </>
+                                                                    <>
+                                                                        {((totalPrice + shippingPrice) / 30).toFixed(2)}$
+                                                                    </> :
+                                                                    <>
+                                                                        {totalPrice + shippingPrice}EGP
+                                                                    </>
                                                             }
-                                                            </td>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </Table>

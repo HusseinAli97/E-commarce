@@ -18,7 +18,6 @@ export default function ContactUs() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle form submission here (e.g., sending data to a server)
-        console.log("Form data:", formData);
     };
 
     return (

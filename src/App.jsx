@@ -15,54 +15,61 @@ import { useContext, useEffect } from 'react';
 import { TokenContext } from './context/TokenContext';
 import ProtectRoutes from './components/ProtectRoutes/ProtectRoutes';
 import Details from './components/Details/Details';
+import CheckOut from './components/CheckOut/CheckOut';
 
 
 const routes = createBrowserRouter([
   {
     path: '/',
-    element: <Layout/>,
+    element: <Layout />,
     children: [
       {
         index: true,
-        element: <ProtectRoutes><Home/></ProtectRoutes>
-      },{
-        path:'categories',
-        element:<ProtectRoutes><Categories/></ProtectRoutes>
-      },{
-        path:'brands',
-        element:<ProtectRoutes><Brands/></ProtectRoutes>
-      },{
-        path:'cart',
-        element:<ProtectRoutes><Cart/></ProtectRoutes>
-      },{
-        path:'wishlist',
-        element:<ProtectRoutes><WishList/></ProtectRoutes>
+        element: <ProtectRoutes><Home /></ProtectRoutes>
+      }, {
+        path: 'categories',
+        element: <ProtectRoutes><Categories /></ProtectRoutes>
+      }, {
+        path: 'brands',
+        element: <ProtectRoutes><Brands /></ProtectRoutes>
+      }, {
+        path: 'cart',
+        element: <ProtectRoutes><Cart /></ProtectRoutes>
+      }, {
+        path: 'wishlist',
+        element: <ProtectRoutes><WishList /></ProtectRoutes>
       }
-      ,{
-        path:'contact',
-        element:<ProtectRoutes><ContactUs/></ProtectRoutes>
+      , {
+        path: 'contact',
+        element: <ProtectRoutes><ContactUs /></ProtectRoutes>
+      }, {
+        path: 'checkout',
+        element: <CheckOut />
+      }, {
+        path: 'about',
+        element: <ProtectRoutes><AboutUs /></ProtectRoutes>
+      }, {
+        path: 'details/:id',
+        element: <ProtectRoutes><Details /></ProtectRoutes>
       },{
-        path:'about',
-        element:<ProtectRoutes><AboutUs/></ProtectRoutes>
-      },{
-        path:'details/:id',
-        element:<ProtectRoutes><Details/></ProtectRoutes>
-      },{
-        path:'*',
-        element:<Error404/>
+        path: 'allorders',
+        element: <ProtectRoutes><Home /></ProtectRoutes>
+      } ,{
+        path: '*',
+        element: <Error404 />
       }
     ]
   }
 ])
 function App() {
-  let {setToken} = useContext(TokenContext);
-  useEffect(()=>{
-    if(localStorage.getItem('userToken')){
+  let { setToken } = useContext(TokenContext);
+  useEffect(() => {
+    if (localStorage.getItem('userToken')) {
       setToken(localStorage.getItem('userToken'));
     }
-  },[])
+  }, [])
   return (
-    <RouterProvider router={routes}/>
+    <RouterProvider router={routes} />
   );
 }
 

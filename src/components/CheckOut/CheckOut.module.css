@@ -1,0 +1,48 @@
+.summaryContainer {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    z-index: 10 !important;
+    margin: 0 auto;
+}
+
+.summaryContainer:hover {
+    transform: rotateX(-45deg) translateZ(45);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.summaryTitle {
+    font-size: 1.5rem;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.summaryTable {
+    width: 100%;
+    margin-top: 35px;
+}
+
+
+.summaryTotal td {
+    padding: 25px 12px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.summaryActions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+}
+
+/* Media Queries for Responsive Design (adjust as needed) */
+@media (max-width: 767px) {
+    .productCol {
+        width: 50%;
+    }
+}

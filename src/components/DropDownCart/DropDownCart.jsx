@@ -5,11 +5,13 @@ import { Dropdown, Button, Figure, Row, Col } from 'react-bootstrap';
 import { CartContext } from '../../context/Cart';
 import { Fragment } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { priceContext } from '../../context/Price';
 
 
 
 export default function DropDownCart() {
     const { cartLength, cartItems, deleteProductFromCart, setCartLength, isLoading } = useContext(CartContext);
+    const { priceCHange } = useContext(priceContext);
     const [cartList, setCartList] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const navigate = useNavigate();
@@ -45,7 +47,16 @@ export default function DropDownCart() {
                     <Dropdown.Item className={` ${style.dropdownActions} border-0`}>
                         <div className={`d-flex align-items-center flex-column justify-content-between bgPurple-Color p-3 text-white  px-3`} >
                             <div className='d-flex align-items-center justify-content-between w-100'>
-                                <h4 >Total:</h4> {totalPrice}EGP
+                                <h4 >Total:</h4>
+                                {
+                                    priceCHange === 'usd' ?
+                                        <>
+                                            {((totalPrice) / 30).toFixed(2)}$
+                                        </> :
+                                        <>
+                                            {totalPrice}EGP
+                                        </>
+                                }
                             </div>
                             <div className='d-flex align-items-center justify-content-start w-100 border-bottom pb-2 '>
                                 <h6 className='me-2'>Qty: </h6>{cartItems?.numOfCartItems}
@@ -59,7 +70,7 @@ export default function DropDownCart() {
                                     </Button>
                                 </Col>
                                 <Col xs={6}>
-                                    <Button className={` w-100 ${style.checkout} buttonMain textHover border-0`} >
+                                    <Button className={` w-100 ${style.checkout} buttonMain textHover border-0` } onClick={() => navigate('/checkout')} >
                                         <i className="fa-solid fa-money-check-dollar fa-lg" />
                                     </Button>
                                 </Col>
@@ -72,7 +83,15 @@ export default function DropDownCart() {
                                 <Dropdown.Item className={`${style.dropdownItem}`}>
                                     <div className={`${style.productDetails}`} >
                                         <p className={`${style.productTitle} m-0 p-0`}>{item?.product?.title?.split(' ').slice(0, 2).join(' ')}</p>
-                                        <span className={`${style.productPrice} m-0 p-0 mt-2 fw-light`}>{item?.count} x {item?.price} EGP</span>
+                                        <span className={`${style.productPrice} m-0 p-0 mt-2 fw-light`}>{item?.count} x                                    {
+                                            priceCHange === 'usd' ?
+                                                <>
+                                                    {((item?.price) / 30).toFixed(2)}$
+                                                </> :
+                                                <>
+                                                    {item?.price}EGP
+                                                </>
+                                        }</span>
                                     </div>
                                     <div className={`${style.imgContainer} ml-2`}>
                                         <img src={item?.product?.imageCover} className={`${style.image}  w-100`} alt="" width={100} />
@@ -89,27 +108,3 @@ export default function DropDownCart() {
         </>
     )
 }
-{/* <div className={`d-flex align-items-center flex-column justify-content-between bgPurple-Color p-3 text-white border-bottom`} >
-<div className='d-flex align-items-center justify-content-between w-100'>
-    <h4 >Total:</h4> {totalPrice}EGP
-</div>
-<div className='d-flex align-items-center justify-content-start w-100'>
-    <h6 className='me-2'>Qty: </h6>{cartItems?.numOfCartItems}
-</div>
-</div>
-<div className={`bgPurple-Color p-2`} >
-<Row>
-    <Col md={6}>
-        <Link to="/cart">
-            <Button className={`w-100 ${style.toCart} buttonSec btn textHover border-0`} >
-                <i className="fa-solid fa-cart-shopping fa-lg" />
-            </Button>
-        </Link>
-    </Col>
-    <Col md={6}>
-        <Button className={` w-100 ${style.checkout} buttonMain textHover border-0`} >
-            <i className="fa-solid fa-money-check-dollar fa-lg" />
-        </Button>
-    </Col>
-</Row>
-</div> */}
