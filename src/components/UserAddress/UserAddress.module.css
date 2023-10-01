@@ -1,0 +1,108 @@
+.heading{
+    color: white !important;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-shadow:
+    -1px 0px 0px var(--waterMelon-color),
+    1px 0px 0px var(--waterMelon-color),
+    0px -1px 0px var(--waterMelon-color),
+    0px 1px 0px var(--waterMelon-color);
+    transition: all 0.3s ease-in-out;
+}
+.heading:hover{
+    color: var(--waterMelon-color) !important;
+    text-shadow:
+    -1px 0px 0px var(--light-color),
+    1px 0px 0px var(--light-color),
+    0px -1px 0px var(--light-color),
+    0px 1px 0px var(--light-color);
+}
+
+
+.button {
+    background-color: var(--waterMelon-color) !important;
+    color: var(--light-color);
+    border: none;
+    border-radius: var(--radius);
+    transition: all 0.5s ease-in-out;
+    padding: 10px 20px;
+}
+
+.button:hover {
+    background-color: var(--lightPurple-color) !important;
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+}
+
+.blueColor {
+    background-color: var(--blue-color);
+    /* Custom color from your variables */
+}
+.Labels{
+    color: var(--light-color) !important;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    text-shadow:
+    -1px 0px 0px var(--waterMelon-color),
+    1px 0px 0px var(--waterMelon-color),
+    0px -1px 0px var(--waterMelon-color),
+    0px 1px 0px var(--waterMelon-color);
+    transition: all 0.3s ease-in-out;
+}
+.addressContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.addressContainer label{
+    color: var(--light-color) !important;
+    font-weight: 400;
+    font-size: .9rem;
+    text-shadow: 
+    -1px 0px 0px var(--lightPurple-color),
+    1px 0px 0px var(--lightPurple-color),
+    0px -1px 0px var(--lightPurple-color),
+    0px 1px 0px var(--lightPurple-color);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 1.2rem;
+}
+.addressContainer label:hover {
+    color: var(--lightPurple-color) !important;
+    text-shadow: 
+    -1px 0px 0px var(--light-color),
+    1px 0px 0px var(--light-color),
+    0px -1px 0px var(--light-color),
+    0px 1px 0px var(--light-color);
+}
+.deleteBtn{
+    width: 50px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+.trash{
+    cursor: pointer;
+    color: var(--light-color) !important;
+    text-shadow: 
+    -1px 0px 0px var(--lightPurple-color),
+    1px 0px 0px var(--lightPurple-color),
+    0px -1px 0px var(--lightPurple-color),
+    0px 1px 0px var(--lightPurple-color);
+    transition: all 0.3s ease-in-out;
+
+}
+.trash:hover{
+    color: var(--lightPurple-color) !important;
+    text-shadow: 
+    -1px 0px 0px var(--light-color),
+    1px 0px 0px var(--light-color),
+    0px -1px 0px var(--light-color),
+    0px 1px 0px var(--light-color);
+
+}

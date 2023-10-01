@@ -1,0 +1,57 @@
+.categoryCard {
+    position: relative;
+    width: 100%;
+    background: white;
+    border-top-right-radius: 4rem;
+    border-bottom-left-radius: 4rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 50px 30px -20px;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    border: 5px solid var(--light-color);
+
+}
+
+.categoryCard:hover {
+    scale: 1.1;
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.categoryImage {
+    height: 400px;
+    width: 100%;
+
+}
+
+.categoryName {
+    font-weight: 700;
+    color: var(--light-color);
+    text-shadow: 3px 2px 10px var(--lightPurple-color);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    transition: all .5s ease-in .5s;
+    text-wrap: nowrap;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    align-items: start;
+    background-color: rgba(57, 31, 49, 0.5);
+    left: -100%;
+    width: 50%;
+    height: fit-content;
+    opacity: 1;
+    bottom: 0;
+    transition: all 0.7s ease-in-out;
+    z-index: 2;
+    border-top-right-radius:50px ;
+    border-bottom-right-radius: 50px;
+}
+
+.categoryCard:hover .overlay {
+    left: 0px;
+}

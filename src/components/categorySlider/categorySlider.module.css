@@ -1,0 +1,78 @@
+.categoryName{
+    font-weight: 600;
+    color: var(--light-color);
+    font-size: .9rem;
+    margin-top: 1rem;
+    text-shadow: 1px 1px 2px var(--primary-color);
+    margin-bottom: .7rem;
+    transition: all 0.3s ease-in-out;
+    text-wrap: nowrap;
+}
+.overlay:hover .categoryName{
+    letter-spacing: .10em;
+}
+.categoryName i {
+    animation: rightArrow 1s ease-in-out infinite;
+    animation-play-state: paused;
+}
+.overlay:hover .categoryName i {
+    animation-play-state: running;
+}
+@keyframes rightArrow {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+.categoryImage{
+    height: 300px !important;
+    width: 300px !important;
+    border-radius: 10px !important;
+    opacity: .9 !important;
+    transition: all 0.3s ease-in-out;
+}
+@media (max-width: 768px) {
+    .categoryImage{
+        width: 500px !important;
+    }
+}
+.categorySlider:hover .categoryImage{
+    opacity: 1 !important;
+}
+.overlay{
+    position: absolute;
+    display: flex;
+    padding: 10px 0 !important;
+    padding: 0 15px;
+    justify-content: center;
+    align-items: start;
+    background-color: rgba(57, 31, 49, 0.5) !important;
+    left: -100%;
+    width: 80%;
+    height: fit-content;
+    opacity: 1;
+    top: 1px;
+    transition: all 0.7s ease-in-out;
+    z-index: 2;
+    border-radius: 0 !important;
+    border-top-right-radius:50px !important; ;
+    border-bottom-right-radius: 50px !important;
+    border-bottom-left-radius: 25px !important;
+}
+.categoryCard:hover .overlay{
+    left: 1px;
+}
+.categoryCard{
+    overflow: hidden;
+}
+.mySwiper {
+    height: fit-content;
+}
+.mySwiper div div  {
+    background-color: transparent;
+}

@@ -1,0 +1,51 @@
+
+
+.mainImag {
+    scale: 1.2;
+}
+
+.slickSliders {
+    display: flex !important;
+}
+
+.slickSliders li {
+    width: 200px !important;
+    height: 200px !important;
+    top: 50px;
+}
+
+.title {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.rating p {
+    font-weight: 600;
+    font-size: .8rem;
+
+}
+
+.price {
+    font-weight: 600;
+    color: var(--waterMelon-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-weight: 300;
+    font-size: .99rem;
+    margin-bottom: 1rem;
+}
+.descContainer {
+    font-size: .8rem !important;
+    line-height: 1.62rem !important;
+
+}
+.descTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}

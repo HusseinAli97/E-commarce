@@ -1,13 +1,404 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;700&family=Poppins:wght@200;300;400;600;900&display=swap');
+
+/* Main Css Variable */
+:root {
+  --primary-color: #6666ff;
+  --secondary-color: #666666;
+  --black-color: #000000;
+  --green-color: #669933;
+  --lightBlue-color: #79c8ed;
+  --lightPurple-color: #8f79ed;
+  --offWhite-color: #d7d5d5e5;
+  --waterMelon-color: #dd6d9a;
+  --lightWaterMelon-color: #e66262;
+  --mustard-color: #fcb941;
+  --dark-color: #212529;
+  --light-color: #fafafa;
+  --transition: all 0.5s ease-in-out;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --lightShadow: 0 5px 15px rgba(188, 184, 184, 0.291);
+  --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.49);
+  --lightOpColor: rgba(218, 212, 212, 0.515);
+  --main-Font: 'poppins', sans-serif;
+  --sec-Font: 'Encode Sans', sans-serif;
+  --font-Size: calc(15px + .059231vw);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* End */
+
+/* General */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e6eaec;
+  font-size: var(--font-Size);
+}
+
+.textHover {
+  transition: var(--transition);
+}
+
+.textHover:hover {
+  color: var(--lightPurple-color);
+}
+
+.navColor {
+  padding: 0;
+}
+
+.navBg {
+  background-color: var(--light-color);
+  color: var(--dark-color) !important;
+}
+
+/* End */
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: var(--lightWaterMelon-color);
+  background: -webkit-linear-gradient(to right, var(--lightBlue-color), var(--lightPurple-color), var(--lightPurple-color));
+  background: linear-gradient(to right, var(--lightBlue-color), var(--lightPurple-color), var(--lightPurple-color));
+}
+
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+.lshadow {
+  box-shadow: var(--lightShadow);
+}
+
+@media (min-width: 768px) {
+
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
+}
+
+.textErorr {
+  color: var(--lightBlue-color);
+  opacity: 1;
+  text-shadow: 1px 2px 10px var(--dark-color);
+  font-size: .9rem;
+}
+
+.green-Color {
+  background-color: var(--green-color);
+  opacity: 1;
+}
+
+.blue-Color {
+  background-color: var(--lightBlue-color);
+  opacity: 1;
+}
+
+.purple-Color {
+  background-color: var(--lightPurple-color);
+  opacity: 1;
+}
+
+.bgPurple-Color {
+  background-color: #8e79ede2;
+
+}
+
+.waterMelon-Color {
+  background-color: var(--lightWaterMelon-color);
+  opacity: 1;
+}
+
+.mustard-Color {
+  background-color: var(--mustard-color);
+  opacity: 1;
+}
+
+.iconHover {
+  transition: var(--transition);
+}
+
+.nav-link:hover .iconHover {
+  color: var(--lightWaterMelon-color) !important;
+  rotate: -180deg;
+}
+
+.quantity {
+  font-size: .8rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+}
+
+.slider-main {
+  flex: 1;
+}
+
+.slider-nav {
+  width: 100px;
+  /* Adjust the width of the thumbnail section as needed */
+}
+
+.purple-ColorText {
+  color: var(--lightPurple-color);
+  opacity: 1;
+}
+
+.buttonPurple {
+  border: var(--primary-color) solid 2px;
+  background-color: transparent;
+  color: var(--lightPurple-color);
+  text-shadow: 0px 1px 1px var(--dark-color);
+
+  opacity: 1;
+  transition: all .5s ease-in-out;
+  border-radius: .3rem;
+}
+
+.buttonPurple:hover {
+  border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
+  background-color: var(--lightPurple-color);
+  color: white;
+  border: transparent solid 2px;
+}
+
+.buttonPurple:hover i {
+  animation: shake 0.5s .5s linear;
+}
+
+.buttonBlue {
+  border: transparent solid 2px;
+  background-color: transparent;
+  color: var(--lightBlue-color);
+  text-shadow: 0px 1px 1px var(--dark-color);
+  opacity: 1;
+  transition: all .5s ease-in-out;
+  border-radius: .3rem;
+}
+
+.buttonBlue:hover {
+  border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
+  background-color: var(--lightBlue-color);
+  color: white;
+  border: transparent solid 2px;
+}
+
+.buttonBlue:hover i {
+  animation: shake 0.5s .5s linear;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(5deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(-5deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(5deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-5deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-5deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(5deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-5deg);
+  }
+}
+
+.go4268192979,
+.go2484888251 {
+
+  position: absolute;
+  left: 220px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.category {
+  font-size: .9rem;
+  font-weight: 400;
+  color: #666464f4;
+}
+
+.tab-content {
+  border: 2px solid #dee2e6 !important;
+  padding: 25px;
+  position: relative !important;
+  top: -16px;
+  border-top: transparent solid 2px !important;
+}
+
+.tabContainer li button {
+  color: var(--dark-color) !important;
+  font-size: .9rem;
+  font-weight: 600;
+  border-bottom: transparent;
+  border: 0 !important;
+}
+
+.tabContainer li button:hover {
+  border: 0 !important;
+  border-color: transparent !important;
+}
+
+.tabContainer li button.active {
+  border: 2px solid !important;
+  border-color: var(--primary-color) var(--primary-color) transparent var(--primary-color) !important;
+  border-radius: 5px 5px 0 0 !important;
+  color: var(--lightPurple-color) !important;
+  padding-bottom: 1.5rem !important;
+
+}
+
+.tabContainer .nav-tabs {
+  border: 0 !important;
+}
+
+.dropdown button::after {
+  display: none !important;
+}
+
+.dropdown-item:hover {
+  background: none;
+}
+
+.customHeart {
+  transition: all .5s ease-in-out !important;
+}
+
+.customHeart:hover {
+  fill: transparent !important;
+  transition: fill 0.5s;
+}
+
+.active.customHeart:hover {
+  fill: var(--lightWaterMelon-color) !important;
+  transition: fill 0.5s;
+}
+
+.buttonMain {
+  border: var(--light-color) solid 2px;
+  background-color: var(--lightBlue-color);
+  color: var(--light-color);
+  text-shadow: 0px 1px 1px var(--dark-color);
+
+  opacity: 1;
+  transition: all .5s ease-in-out;
+  border-radius: .3rem;
+}
+
+.buttonMain:hover {
+  border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
+  background-color: var(--lightBlue-color);
+  color: white;
+  border: transparent solid 2px;
+}
+
+.buttonMain:hover i {
+  animation: shake 0.5s .5s linear;
+}
+
+.buttonSec {
+  border: transparent solid 2px;
+  background-color: var(--mustard-color);
+  color: var(--light-color);
+  opacity: 1;
+  transition: all .5s ease-in-out;
+  border-radius: .3rem;
+}
+
+.buttonSec:hover {
+  border-radius: 1.4rem 0.4rem 1.7rem 0.7rem;
+  background-color: var(--mustard-color);
+  color: var(--dark-color);
+  border: transparent solid 2px;
+}
+
+.buttonSec:hover i {
+  animation: shake 0.5s .5s linear;
+}
+
+
+.pink-Color {
+  background-color: var(--waterMelon-color) !important;
+  border: 1px solid transparent !important;
+
+}
+
+.mustard-Btn {
+  background-color: var(--mustard-color) !important;
+  border: 1px solid transparent !important;
+}
+
+.pink-Color:hover {
+  color: var(--waterMelon-color) !important;
+  border: 1px solid var(--waterMelon-color) !important;
+
+}
+
+.mustard-Btn:hover {
+  color: var(--mustard-color) !important;
+  border: 1px solid var(--mustard-color) !important;
+}
+
+.pink-Color:hover,
+.mustard-Btn:hover {
+  background-color: transparent !important;
+}
+
+.mustard-Btn:hover i,
+.pink-Color:hover i {
+  animation: shake 0.5s .5s linear;
+}
+
+.mustard-Btn,
+.pink-Color {
+  opacity: 1;
+  transition: var(--transition);
+}
+
+.emptyContainer {
+  height: 100vh;
 }

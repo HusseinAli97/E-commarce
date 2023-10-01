@@ -1,0 +1,43 @@
+/* Updated CSS Module styles for the AboutUs component */
+.about-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all .5s ease-in-out;
+}
+
+.about-container:hover {
+    scale: 1.01;
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.about-container h2 {
+    color: var(--dark-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.contact-info {
+    margin-top: 30px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.contact-info .info-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: var(--lightPurple-color);
+}

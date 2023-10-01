@@ -1,0 +1,13 @@
+.formSelect {
+    background-color: transparent !important;
+    border: none ;
+    cursor: pointer;
+}
+.formSelect:focus-within,
+.formSelect:focus {
+    box-shadow: none;
+    border: none;
+}
+.topNav {
+    font-family: var(--sec-Font) ;
+}

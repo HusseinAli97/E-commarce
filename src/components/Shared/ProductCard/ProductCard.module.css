@@ -1,0 +1,248 @@
+.card {
+    position: relative;
+    width: 100%;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 50px 30px -20px;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    border: 1px solid rgba(238, 224, 224, 0.566);
+}
+.card:hover {
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.cat {
+    font-weight: 700;
+    color: #666666;
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+    transition: transform 0.5s;
+    bottom: -12px;
+    left: 1.5rem;
+    margin-top: 5px;
+}
+
+.card:hover .cat {
+    transform: scale(1.3);
+}
+
+.card .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    scale: 1.1;
+    border-top-right-radius: 0rem;
+    margin-bottom: 1rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border-top-right-radius: 4rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    z-index: 2;
+
+}
+
+.badeges {
+    position: relative;
+    z-index: 2;
+}
+
+.card:hover .overlay {
+    opacity: 1;
+}
+
+.card .imageContainer img {
+    object-fit: cover;
+    height: 100%;
+    border-radius: inherit;
+    transition: all 1s ease-in-out;
+    position: relative;
+}
+
+/* .card:hover .imageContainer img {
+    transform: scale(1.2);
+} */
+
+.price {
+    position: absolute;
+    right: .7rem;
+    bottom: 5rem;
+    background: white;
+    color: var(--lightBlue-color);
+    font-weight: 900;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 1rem 1rem 2rem 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 15px 0px;
+    transition: all 0.5s ease-in-out;
+    width: 80px;
+    z-index: 5;
+}
+
+.card .price:hover {
+    background: var(--dark-color);
+    scale: 1.3;
+    cursor: none;
+}
+
+
+.heart{
+    position: absolute;
+    z-index: 2;
+    bottom:-50px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.5s ease-in-out;
+}
+.card:hover .heart{
+    bottom: 20px;
+}
+
+
+.card .favorite input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.card .content {
+    padding: 0px 0.8rem;
+    margin-bottom: 1rem;
+    z-index: 3;
+}
+
+.card .brand {
+    font-weight: 900;
+    color: #a6a6a6;
+    width: 100%;
+    transition: transform 0.5s;
+
+}
+
+.card:hover .brand {
+    color: var(--lightWaterMelon-color);
+
+}
+
+.card .productName {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    transition: transform 0.5s;
+
+}
+
+.card:hover .productName {
+    transform: scale(1.7);
+}
+
+.description {
+    color: var(--dark-color);
+    font-size: 0.7rem;
+    font-weight: 600;
+    transition: transform 0.5s;
+    text-transform: capitalize;
+    font-family: var(--sec-Font);
+}
+
+.infoContainer {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #a8a8a8;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    transition: all 0.5s;
+}
+
+.badge:hover {
+    background-color: var(--lightWaterMelon-color) !important;
+    transform: scale(1.5);
+    cursor: none;
+}
+
+.buttonContainer {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    top: 50%;
+    left: 0;
+    translate: -50%, -50%;
+    transition: var(--transition);
+}
+
+.card:hover .buttonContainer {
+    opacity: 1;
+    visibility: visible;
+}
+
+.button {
+    border-radius: 1.4rem 1.4rem 0.7rem 0.7rem;
+    border: none;
+    padding: 0.5rem 0;
+    background: var(--accent-color);
+    color: white;
+    font-weight: 900;
+    position: relative;
+    bottom: 0;
+    background: var(--lightBlue-color);
+    transition: var(--transition);
+
+}
+
+.button:hover {
+    background: var(--dark-color);
+}
+
+.buyButton {
+    rotate: 90deg;
+    left: -50px;
+
+}
+
+.cartButton {
+    rotate: 270deg;
+    right: -50px;
+}
+
+.buyButton,
+.cartButton {
+    display: grid;
+    place-content: center;
+    position: absolute;
+    width: 50px;
+    transition: var(--transition);
+}
+
+.card:hover .buyButton {
+    left: 0;
+}
+
+.card:hover .cartButton {
+    right: 0;
+}
+
+.buyButton:hover,
+.cartButton:hover {
+    transform: scale(1.5);
+}

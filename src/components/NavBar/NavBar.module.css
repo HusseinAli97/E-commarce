@@ -1,0 +1,10 @@
+.wishListHover{
+    transition: var(--transition);
+}
+
+.wishListHover:hover {
+    color: var(--waterMelon-color);
+}
+
+
+
