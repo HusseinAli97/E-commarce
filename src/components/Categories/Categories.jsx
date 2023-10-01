@@ -7,6 +7,7 @@ import BgHeader from '../bgHeader/bgHeader'
 import { useQuery } from 'react-query'
 import axios from 'axios'
 import ProductLoader from '../ProductLoader/ProductLoader'
+import { Helmet } from "react-helmet";
 export default function Categories() {
     const getCategories = () => axios.get(`https://ecommerce.routemisr.com/api/v1/categories`)
     const { data, isLoading, isError } = useQuery('categories', getCategories)
@@ -15,6 +16,15 @@ export default function Categories() {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Categories</title>
+                <meta name="description" content="Categories" />
+                <meta name="keywords" content="Categories" />
+                <meta name="author" content="Hussein Ali" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="canonical" href="/categories" />
+            </Helmet>
             <BgHeader mainName="Categories" subName="shop" />
 
             <BreadCrumb product={{ title: "Categories" }} />

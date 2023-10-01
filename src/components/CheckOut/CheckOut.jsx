@@ -10,8 +10,10 @@ import { Link } from 'react-router-dom'
 import { addressContext } from '../../context/Address'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import {Helmet} from "react-helmet";
+
 export default function CheckOut() {
-    const { setCartLength, cartItems, shippingPrice, } = useContext(CartContext)
+    const { setCartLength, cartItems, shippingPrice,getUserCart } = useContext(CartContext)
     const { addressReauired, data } = useContext(addressContext);
     const [cartList, setCartList] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
@@ -29,9 +31,9 @@ export default function CheckOut() {
         city: data?.city,
     }
     async function payNow(shippingAddress) {
-        
+
         try {
-            let { data} = await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartItems?.data?._id}?url=http://localhost:3000`, {
+            let { data } = await axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartItems?.data?._id}?url=http://localhost:3000`, {
                 shippingAddress
             }, {
                 headers: {
@@ -40,7 +42,6 @@ export default function CheckOut() {
             })
             toast.success('Order placed successfully!', { position: 'top-right', autoClose: 1500 });
             window.location.href = data.session.url
-            setCartList([]);
         }
         catch (err) {
             toast.error(err.message, { position: 'top-right', autoClose: 1500 });
@@ -48,6 +49,15 @@ export default function CheckOut() {
     }
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Checkout</title>
+                <meta name="description" content="Checkout" />
+                <meta name="keywords" content="Checkout" />
+                <meta name="author" content="Hussein Ali" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="canonical" href="/checkout" />
+            </Helmet>
             <BgHeader mainName="Checkout" />
             <BreadCrumb product={{ title: "Checkout" }} />
             <Container fluid className='vh-100 p-5 bg-light mb-5 overflow-auto'>

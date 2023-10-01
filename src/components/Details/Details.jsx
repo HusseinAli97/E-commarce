@@ -12,6 +12,8 @@ import { toast } from 'react-toastify';
 import { CartContext } from '../../context/Cart';
 import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import Heart from 'react-heart';
+import { Helmet } from 'react-helmet';
+import BgHeader from '../bgHeader/bgHeader';
 
 export default function Details() {
     let params = useParams();
@@ -41,25 +43,25 @@ export default function Details() {
     useEffect(() => {
         getProduct(params.id)
     }, [])
-
-    // useEffect(() => {
-    //     getUserCart()
-    // },[cartItems])
-
-    // function getProduct(id) {
-    //     return axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
-    // }
-    // let { data, isLoading, isError } = useQuery('oneProduct', () => getProduct(params.id),{
-    //     retry: false
-    // }); 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>{product?.title}</title>
+                <meta name="description" content="Details" />
+                <meta name="keywords" content="Details" />
+                <meta name="author" content="Hussein Ali" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="canonical" href="/details" />
+            </Helmet>
+            
             {isLoading ? (
                 <>
                     <ProductLoader />
                 </>
             ) : (
                 <>
+                <BgHeader mainName="details" subName={product?.title} />
                     <BreadCrumb product={product} params={params} />
                     <Container fluid className="bg-light pb-5 mb-5">
                         <div className="topContent">

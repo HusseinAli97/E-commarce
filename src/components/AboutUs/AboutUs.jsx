@@ -2,9 +2,19 @@ import React from "react";
 import styles from "./AboutUs.module.css"; // Import the updated CSS module
 import { Container } from "react-bootstrap";
 import BgHeader from "../bgHeader/bgHeader";
+import { Helmet } from "react-helmet";
 
 export default function AboutUs() {
     return (<>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>About Us</title>
+            <meta name="description" content="About Us" />
+            <meta name="keywords" content="About Us" />
+            <meta name="author" content="Hussein Ali" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="canonical" href="/about-us" />
+        </Helmet>
         <BgHeader mainName="About Us" subName="Us" />
         <Container fluid className={`d-flex align-items-start justify-content-center bg-white vh-100`}>
             <div className={styles["about-container"]}>

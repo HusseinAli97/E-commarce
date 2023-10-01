@@ -9,6 +9,8 @@ import ProductLoader from '../ProductLoader/ProductLoader';
 import BgHeader from '../bgHeader/bgHeader';
 import { CartContext } from '../../context/Cart';
 import { priceContext } from '../../context/Price';
+import { Helmet } from 'react-helmet';
+
 export default function WishList() {
     const { wishListItems, deleteFromWshList, getUserWishList, isLoading } = useContext(wishListContext)
     const { addToCart, setCartLength, } = useContext(CartContext)
@@ -30,6 +32,14 @@ export default function WishList() {
 
     return (
         <div className="main">
+            <Helmet>
+                <title>WishList</title>
+                <meta name="description" content="WishList" />
+                <meta name="keywords" content="WishList" />
+                <meta name="author" content="Hussein Ali" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="canonical" href="/wishList" />
+            </Helmet>
             <BgHeader mainName="wishList" subName="" />
             <div className={`${styles.pageContent} pb-5`}>
                 {isLoading ? <>

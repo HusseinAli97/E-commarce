@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from 'react'
-import { toast } from 'react-toastify';
 import { Container, Row, Col, Button, Table, FormCheck } from 'react-bootstrap';
 import styles from './Cart.module.css'
 import { CartContext } from '../../context/Cart';
@@ -7,11 +6,12 @@ import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import { Link } from 'react-router-dom';
 import ProductLoader from '../ProductLoader/ProductLoader';
 import BgHeader from '../bgHeader/bgHeader';
+import {Helmet} from "react-helmet";
 import { priceContext } from '../../context/Price';
 
 
 export default function Cart() {
-    const { setCartLength, updateProductQty, cartItems, isLoading, deleteProductFromCart,shippingPrice, setShippingPrice } = useContext(CartContext)
+    const { setCartLength, updateProductQty, cartItems, isLoading, deleteProductFromCart, shippingPrice, setShippingPrice } = useContext(CartContext)
     const [cartList, setCartList] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const { priceCHange } = useContext(priceContext);
@@ -33,13 +33,22 @@ export default function Cart() {
 
     return (
         <div className="main">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Shopping Cart</title>
+                <meta name="description" content="Shopping Cart" />
+                <meta name="keywords" content="Shopping Cart" />
+                <meta name="author" content="Hussein Ali" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="canonical" href="/shopping-cart" />
+            </Helmet>
             <BgHeader mainName="Shopping Cart" subName="shop" />
             <div className={`${styles.pageContent} pb-5`}>
                 {isLoading ? <>
                     <ProductLoader />
                 </> : <>
                     <BreadCrumb product={{ title: "Shopping Cart" }} />
-                    {cartList?.length !== 0 ? (
+                    {cartList?.length > 0 ? (
                         <div className="cart">
                             <Container fluid className='pb-5 '>
                                 <Row className="pb-5">
@@ -139,7 +148,7 @@ export default function Cart() {
                                                     </tr>
                                                     <tr className={`${styles.summaryRow}`}>
                                                         <td className={`${styles.summaryLabel}`}>Shipping:</td>
-                                                        <td className={`${styles.summaryValue}`}>{shippingPrice==0 ? 'Free':shippingPrice == 10 ? 'Standard' : 'Express'}</td>
+                                                        <td className={`${styles.summaryValue}`}>{shippingPrice == 0 ? 'Free' : shippingPrice == 10 ? 'Standard' : 'Express'}</td>
                                                     </tr>
                                                     <tr className={`${styles.summaryShippingRow}`}>
                                                         <td>

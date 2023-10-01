@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./ContactUs.module.css"; // Import the updated CSS module
 import { Container } from "react-bootstrap";
 import BgHeader from "../bgHeader/bgHeader";
+import { Helmet } from "react-helmet";
+
 
 export default function ContactUs() {
     const [formData, setFormData] = useState({
@@ -22,6 +24,15 @@ export default function ContactUs() {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Contact Us</title>
+                <meta name="description" content="Contact Us" />
+                <meta name="keywords" content="Contact Us" />
+                <meta name="author" content="Hussein Ali" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="canonical" href="/contact-us" />
+            </Helmet>
             <BgHeader mainName="Contact" subName="Us" />
             <Container fluid className={`d-flex align-items-start justify-content-center bg-white vh-100`}>
                 <div className={styles["contact-container"]}>

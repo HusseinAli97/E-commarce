@@ -28,7 +28,9 @@ export default function CartProvider({ children }) {
                 setIsLoading(false)
                 setCartId(res?.data?.data?._id);
             })
-            .catch((err) => err);
+            .catch((err) => {
+                setIsLoading(false)
+            });
     }
     
     useEffect(() => {
