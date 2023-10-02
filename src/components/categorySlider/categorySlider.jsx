@@ -6,7 +6,7 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 
-import { Autoplay, FreeMode, Keyboard, History } from 'swiper/modules';
+import { Autoplay, FreeMode, Keyboard } from 'swiper/modules';
 
 
 export default function CategorySlider() {
@@ -46,15 +46,10 @@ export default function CategorySlider() {
                         spaceBetween: 10,
                     },
                 }}
-                autoHeight={true}
                 autoplay={{
                     delay: 4000,
-                    disableOnInteraction: false,
                 }}
-                history={{
-                    key: 'slide',
-                }}
-                modules={[Autoplay, FreeMode, Keyboard, History]}
+                modules={[Autoplay, FreeMode, Keyboard]}
                 className={styles.mySwiper}>
                 {data?.data.data.map((item, index) => {
                     return (
