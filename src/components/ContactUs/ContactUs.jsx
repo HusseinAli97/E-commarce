@@ -34,7 +34,7 @@ export default function ContactUs() {
                 <link rel="canonical" href="/contact-us" />
             </Helmet>
             <BgHeader mainName="Contact" subName="Us" />
-            <Container fluid className={`d-flex align-items-start justify-content-center bg-white vh-100`}>
+            <Container fluid className={`d-flex align-items-start justify-content-center bg-white`}>
                 <div className={styles["contact-container"]}>
                     <h2>Contact Us</h2>
                     <form className={styles["contact-form"]} onSubmit={handleSubmit}>

@@ -16,7 +16,7 @@ export default function AboutUs() {
             <link rel="canonical" href="/about-us" />
         </Helmet>
         <BgHeader mainName="About Us" subName="Us" />
-        <Container fluid className={`d-flex align-items-start justify-content-center bg-white vh-100`}>
+        <Container fluid className={`d-flex align-items-start justify-content-center bg-white`}>
             <div className={styles["about-container"]}>
                 <h2>About Us</h2>
                 <p className={styles["about-text"]}>

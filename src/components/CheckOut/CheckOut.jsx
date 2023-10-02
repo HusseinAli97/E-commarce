@@ -60,7 +60,7 @@ export default function CheckOut() {
             </Helmet>
             <BgHeader mainName="Checkout" />
             <BreadCrumb product={{ title: "Checkout" }} />
-            <Container fluid className='vh-100 p-5 bg-light mb-5 overflow-auto'>
+            <Container fluid className=' p-5 bg-light mb-5 overflow-auto'>
                 <Row className='mb-5'>
                     <Col md={6} className=''>
                         <UserAddress />

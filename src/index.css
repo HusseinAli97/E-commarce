@@ -399,6 +399,6 @@ body {
   transition: var(--transition);
 }
 
-.emptyContainer {
+/* .emptyContainer {
   height: 100vh;
-}
+} */
