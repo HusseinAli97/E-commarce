@@ -13,8 +13,10 @@ import product3 from "../../images/assits/mainSlider/product3.jpg";
 import product4 from "../../images/assits/mainSlider/product4.jpg";
 import product5 from "../../images/assits/mainSlider/product5.jpg";
 import CategorySlider from "../categorySlider/categorySlider";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeSlider() {
+    const navigate = useNavigate()
     return (
         <Container fluid className={`p-0 px-1 mt-5 `}>
             <Swiper
@@ -45,7 +47,9 @@ export default function HomeSlider() {
                                     <h3>SAVE UP TO 25%</h3>
                                 </div>
                                 <div className="action">
-                                    <button className="buttonPurple px-5 py-2 ">Shop Now</button>
+                                    <button className="buttonPurple px-5 py-2 "  onClick={()=>{
+                                        navigate("/categories")
+                                    }}>Shop Now</button>
                                 </div>
                             </div>
                         </Row>
@@ -72,7 +76,9 @@ export default function HomeSlider() {
                                     <h3>SAVE 70% ON ELECTRONICS</h3>
                                 </div>
                                 <div className="action">
-                                    <button className="buttonPurple px-5 py-2 ">Shop Now</button>
+                                    <button className="buttonPurple px-5 py-2 " onClick={()=>{
+                                        navigate("/categories")
+                                    }}>Shop Now</button>
                                 </div>
                             </div>
                         </Row>
@@ -98,7 +104,9 @@ export default function HomeSlider() {
                                     <h3>SAVE 5% ON WATCHES</h3>
                                 </div>
                                 <div className="action">
-                                    <button className="buttonPurple px-5 py-2">Shop Now</button>
+                                    <button className="buttonPurple px-5 py-2" onClick={()=>{
+                                        navigate("/categories")
+                                    }}>Shop Now</button>
                                 </div>
                             </div>
                         </Row>
@@ -124,7 +132,9 @@ export default function HomeSlider() {
                                     <h3>SAVE 25% ON MEN'S CLOTHING</h3>
                                 </div>
                                 <div className="action">
-                                    <button className="buttonPurple px-5 py-2">Shop Now</button>
+                                    <button className="buttonPurple px-5 py-2" onClick={()=>{
+                                        navigate("/categories")
+                                    }}>Shop Now</button>
                                 </div>
                             </div>
                         </Row>
