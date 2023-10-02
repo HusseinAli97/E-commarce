@@ -15,7 +15,6 @@ export default function CartProvider({ children }) {
     const [cartLength, setCartLength] = useState(0);
     const [cartItems, setCartItems] = useState([]);
     const [shippingPrice, setShippingPrice] = useState(0)
-    const [cartId, setCartId] = useState('');
 
     function getUserCart() {
         setIsLoading(true)
@@ -26,7 +25,6 @@ export default function CartProvider({ children }) {
                 setCartLength(res.data.numOfCartItems);
                 setCartItems(res.data);
                 setIsLoading(false)
-                setCartId(res?.data?.data?._id);
             })
             .catch((err) => {
                 setIsLoading(false)

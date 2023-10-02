@@ -115,8 +115,8 @@ export default function UserAddress() {
     async function getAddresses() {
         try {
             const response = await axios.get('https://route-ecommerce.onrender.com/api/v1/addresses', { headers });
-            setAddresses(response.data.data);
-            setCurrantAddress(response.data.data[response.data.data.length - 1]._id);
+            setAddresses(response?.data?.data);
+            setCurrantAddress(response?.data?.data[response.data.data.length - 1]?._id);
         } catch (error) {
             toast.error(error.message, { position: 'top-right', autoClose: 1500 });
         }

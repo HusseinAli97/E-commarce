@@ -6,7 +6,7 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 
-import { Autoplay, FreeMode, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, FreeMode, Keyboard, History } from 'swiper/modules';
 
 
 export default function CategorySlider() {
@@ -18,9 +18,12 @@ export default function CategorySlider() {
         <div>
             <Swiper
                 spaceBetween={10}
-                slidesPerView={6}
-                freeMode={true}
+                grabCursor={true}
                 loop={true}
+                freeMode={true}
+                keyboard={{
+                    enabled: true,
+                }}
                 breakpoints={{
                     320: {
                         slidesPerView: 1,
@@ -42,17 +45,16 @@ export default function CategorySlider() {
                         slidesPerView: 5,
                         spaceBetween: 10,
                     },
-                    1100: {
-                        slidesPerView: 6,
-                        spaceBetween: 10,
-                    }
                 }}
                 autoHeight={true}
                 autoplay={{
                     delay: 4000,
                     disableOnInteraction: false,
                 }}
-                modules={[Autoplay, FreeMode]}
+                history={{
+                    key: 'slide',
+                }}
+                modules={[Autoplay, FreeMode, Keyboard, History]}
                 className={styles.mySwiper}>
                 {data?.data.data.map((item, index) => {
                     return (
