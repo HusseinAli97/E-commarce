@@ -42,16 +42,16 @@ export default function Login({ onSuccessfulLogin }) {
                     setToken(response.data.token);
                     onSuccessfulLogin();
                     setIsLoading(false);
-                    toast.success("Login successful!", { position: "top-right", autoClose: 1500 });
+                    toast.success("Login successful!", { position: "top-center", autoClose: 1500 });
                 }
             } catch (error) {
                 //  login error
                 if (error.response) {
                     setIsLoading(false);
-                    toast.error(error.response.data.message, { position: "top-right", autoClose: 1500 });
+                    toast.error(error.response.data.message, { position: "top-center", autoClose: 1500 });
                 } else {
                     setIsLoading(false);
-                    toast.error(error.message, { position: "top-right", autoClose: 3000 });
+                    toast.error(error.message, { position: "top-center", autoClose: 3000 });
                 }
             }
         },

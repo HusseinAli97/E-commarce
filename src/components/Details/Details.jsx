@@ -30,9 +30,9 @@ export default function Details() {
         let { data } = await addToCart(productId)
         setCartLength(data?.numOfCartItems)
         if (data.status === 'success') {
-            toast.success(data.message, { position: "top-right" });
+            toast.success(data.message, { position: "top-center" });
         } else {
-            toast.error(data.message, { position: "top-right" });
+            toast.error(data.message, { position: "top-center" });
         }
     }
     async function getProduct(id) {

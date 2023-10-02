@@ -28,12 +28,12 @@ export default function ChangePassword({backToLogin}) {
             try {
                 const response = await axios.put('https://ecommerce.routemisr.com/api/v1/auth/resetPassword', dataSend);
                 if (response.status === 200) {
-                    toast.success('Password Changed', { position: "top-right", autoClose: 1500 });
+                    toast.success('Password Changed', { position: "top-center", autoClose: 1500 });
                     formik.resetForm();
                     backToLogin();
                 }
             } catch (error) {
-                toast.error(error.response.data.message, { position: "top-right", autoClose: 3000 });
+                toast.error(error.response.data.message, { position: "top-center", autoClose: 3000 });
             }
         }
     })

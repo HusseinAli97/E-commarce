@@ -24,10 +24,10 @@ export default function ForgetPassword({ backToLogin }) {
         onSubmit: async (email) => {
             try {
                 const response = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords', email);
-                toast.success(response.data.message, { position: "top-right", autoClose: 1500 });
+                toast.success(response.data.message, { position: "top-center", autoClose: 1500 });
                 setShowCodeVerification(true);
             } catch (error) {
-                toast.error(error.response.data.message, { position: "top-right", autoClose: 3000 });
+                toast.error(error.response.data.message, { position: "top-center", autoClose: 3000 });
             }
         }
     })

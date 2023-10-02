@@ -23,10 +23,10 @@ export default function WishList() {
         let { data } = await addToCart(productId)
         setCartLength(data?.numOfCartItems)
         if (data.status === 'success') {
-            toast.success(data.message, { position: "top-right" });
+            toast.success(data.message, { position: "top-center" });
             deleteFromWshList(productId)
         } else {
-            toast.error(data.message, { position: "top-right" });
+            toast.error(data.message, { position: "top-center" });
         }
     }
 

@@ -43,7 +43,7 @@ export default function DropDownCart() {
                                 <span className='mustard-Color  text-white quantity' id='cart'>0</span>
                     }
                 </Dropdown.Toggle >
-                <Dropdown.Menu align="end" className={`border-0 ${style.dropdown}`} nativeMobileScroll={true} >
+                <Dropdown.Menu align="end" className={`border-0 ${style.dropdown}`} >
                     <Dropdown.Item className={` ${style.dropdownActions} border-0`}>
                         <div className={`d-flex align-items-center flex-column justify-content-between bgPurple-Color p-3 text-white  px-3`} >
                             <div className='d-flex align-items-center justify-content-between w-100'>
