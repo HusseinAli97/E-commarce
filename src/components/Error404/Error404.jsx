@@ -16,8 +16,8 @@ export default function Error404() {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link rel="canonical" href="/error-404" />
             </Helmet>
-            <Container fluid className={`d-flex justify-content-center align-items-end bg-light vh-100`}>
-                <img src={error} alt="" className="img-fluid position-relative bottom-0 " />
+            <Container fluid className={`d-flex justify-content-center align-items-center bg-light vh-100 `}>
+                <img src={error} alt="" className="img-fluid mx-auto  "  width={500} height={500}/>
             </Container>
         </>
     )
