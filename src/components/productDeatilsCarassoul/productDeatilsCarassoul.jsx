@@ -32,7 +32,7 @@ export default class AsNavFor extends Component {
         return (
             <div>
                 <Row>
-                    <Col md={3} className="d-none d-lg-flex flex-column align-items-center justify-content-center p-0">
+                    <Col md={3} className="d-none d-lg-flex flex-column align-items-center justify-content-center p-0" >
                         <div className="content ">
                             <Slider
                                 asNavFor={this.state.nav1}
@@ -41,38 +41,7 @@ export default class AsNavFor extends Component {
                                 focusOnSelect={true}
                                 arrows={false}
                                 vertical={true}
-                                className={`${styles.slider}`}
-                                responsive={[
-                                    {
-                                        breakpoint: 1024,
-                                        settings: {
-                                            slidesToShow: 3,
-                                            slidesToScroll: 3,
-                                            infinite: true,
-                                            dots: true
-                                        }
-                                    }, {
-                                        breakpoint: 600,
-                                        settings: {
-                                            slidesToShow: 2,
-                                            slidesToScroll: 2,
-                                            initialSlide: 2
-
-                                        }
-                                    }, {
-                                        breakpoint: 480,
-                                        settings: {
-                                            slidesToShow: 1,
-                                            slidesToScroll: 1
-                                        }
-                                    }, {
-                                        breakpoint: 0,
-                                        settings: {
-                                            slidesToShow: 1,
-                                            slidesToScroll: 1
-                                        }
-                                    }
-                                ]}
+                                className={`${styles.slider} `}
                                 verticalSwiping={true}
                                 draggable={true}
                             >

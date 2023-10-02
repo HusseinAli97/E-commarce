@@ -14,14 +14,14 @@ import BreadCrumb from '../BreadCrumb/BreadCrumb';
 import Heart from 'react-heart';
 import { Helmet } from 'react-helmet';
 import BgHeader from '../bgHeader/bgHeader';
+import { priceContext } from '../../context/Price';
 
 export default function Details() {
-    let params = useParams();
-    let [isClick, setClick] = useState(false);
-    let [count, setCount] = useState(0);
-    let [product, setProduct] = useState([]);
-    let [isLoading, setIsLoading] = useState(true);
-    let { addToCart, setCartLength, updateProductQty, cartItems } = useContext(CartContext)
+    const { priceCHange } = useContext(priceContext);
+    const params = useParams();
+    const [product, setProduct] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const { addToCart, setCartLength, updateProductQty, cartItems } = useContext(CartContext)
     const [key, setKey] = useState('Description');
     const [active, setActive] = useState(false)
 
@@ -54,24 +54,24 @@ export default function Details() {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <link rel="canonical" href="/details" />
             </Helmet>
-            
+
             {isLoading ? (
                 <>
                     <ProductLoader />
                 </>
             ) : (
                 <>
-                <BgHeader mainName="details" subName={product?.title} />
+                    <BgHeader mainName="details" subName={product?.title} />
                     <BreadCrumb product={product} params={params} />
                     <Container fluid className="bg-light pb-5 mb-5">
-                        <div className="topContent">
+                        <div className="topContent mb-5" style={{height: 'fit-content'}}>
                             <Row className="px-5 ">
                                 <Col md={4}>
                                     <div className="Gallery mt-4">
-                                        <AsNavFor images={product?.images} />
+                                        <AsNavFor images={product?.images}  />
                                     </div>
                                 </Col>
-                                <Col md={8}>
+                                <Col md={8} className='' style={{ position: "relative" }}>
                                     <div className="productDetails p-5 mt-4">
                                         <h2 className={`${styles.title} mb-1`}>
                                             {product?.title}
@@ -91,7 +91,12 @@ export default function Details() {
                                             </p>
                                         </div>
                                         <h3 className={`${styles.price} m-0 mb-2`}>
-                                            {product?.price} EGP
+                                            {
+                                                priceCHange === 'usd' ?
+                                                    `$${(product?.price / 30).toFixed(2)}`
+                                                    :
+                                                    `${product?.price}EGP`
+                                            }
                                         </h3>
                                         <div className={`${styles.topContent} mt-4`}>
                                             <p className={`${styles.description} text-muted mb-2 `}>
@@ -110,15 +115,6 @@ export default function Details() {
                                                     <i className="fa fa-cart-shopping me-2 "></i>
                                                     Add to Cart
                                                 </Button>
-                                                <div
-                                                    className={`${styles.heart} d-flex align-items-center  `}
-                                                >
-                                                    <div className={`${styles.heart}`} style={{ width: "2rem" }}>
-                                                        <Heart isActive={active} onClick={() => setActive(!active)} animationScale={1.2} animationTrigger="both" className={`customHeart${active ? " active" : ""}`} />
-                                                    </div>                                                    <p className="m-0 ms-2 textHover ">
-                                                        Add to Wishlist
-                                                    </p>
-                                                </div>
                                             </div>
                                             <div className="border-bottom mt-4" />
                                             <div className="category d-flex align-items-center mt-2">
