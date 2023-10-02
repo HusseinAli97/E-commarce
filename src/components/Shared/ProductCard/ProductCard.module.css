@@ -9,7 +9,7 @@
     border: 1px solid rgba(238, 224, 224, 0.566);
 }
 .card:hover {
-    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    scale: 1.1;
     box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
