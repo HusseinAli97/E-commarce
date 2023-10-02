@@ -40,11 +40,11 @@ export default function CheckOut() {
                     token: localStorage.getItem('userToken')
                 }
             })
-            toast.success('Order placed successfully!', { position: 'top-right', autoClose: 1500 });
+            toast.success('Order placed successfully!', { position: 'top-center', autoClose: 1500 });
             window.location.href = data.session.url
         }
         catch (err) {
-            toast.error(err.message, { position: 'top-right', autoClose: 1500 });
+            toast.error(err.message, { position: 'top-center', autoClose: 1500 });
         }
     }
     return (

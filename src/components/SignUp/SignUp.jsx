@@ -36,7 +36,7 @@ export default function SignUp({ switchToLoginForm }) {
                 // successful registration 
                 if (response.data.message === "success") {
                     setIsLoading(false);
-                    toast.success("Sign up successful!", { position: "top-right" });
+                    toast.success("Sign up successful!", { position: "top-center" });
                     formik.resetForm();
                     switchToLoginForm();
                 }
@@ -44,10 +44,10 @@ export default function SignUp({ switchToLoginForm }) {
                 // registration error
                 if (error.response) {
                     setIsLoading(false);
-                    toast.error(error.response.data.message, { position: "top-right" });
+                    toast.error(error.response.data.message, { position: "top-center" });
                 } else {
                     setIsLoading(false);
-                    toast.error(error.message, { position: "top-right" });
+                    toast.error(error.message, { position: "top-center" });
                 }
             }
         },

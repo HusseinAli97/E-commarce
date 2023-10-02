@@ -23,12 +23,12 @@ export default function VerifyRestCode({ resendCode,backToLogin }) {
             try {
                 const response = await axios.post('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode', values);
                 if (response.status === 200) {
-                    toast.success('Code Verified', { position: "top-right", autoClose: 1500 });
+                    toast.success('Code Verified', { position: "top-center", autoClose: 1500 });
                     setChangePasswordForm(true);
                 }
 
             } catch (error) {
-                toast.error(error.response.data.message, { position: "top-right", autoClose: 3000 });
+                toast.error(error.response.data.message, { position: "top-center", autoClose: 3000 });
             }
         }
     })

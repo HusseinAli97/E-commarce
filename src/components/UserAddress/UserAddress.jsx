@@ -40,11 +40,11 @@ export default function UserAddress() {
         onSubmit: async (values) => {
             try {
                 let response = await axios.post('https://route-ecommerce.onrender.com/api/v1/addresses', values, { headers });
-                toast.success('Address added successfully!', { position: 'top-right', autoClose: 1500 });
+                toast.success('Address added successfully!', { position: 'top-center', autoClose: 1500 });
                 formik.resetForm();
                 setAddresses(response.data.data);
             } catch (error) {
-                toast.error(error.message, { position: 'top-right', autoClose: 1500 });
+                toast.error(error.message, { position: 'top-center', autoClose: 1500 });
             }
         },
     })
@@ -118,7 +118,7 @@ export default function UserAddress() {
             setAddresses(response?.data?.data);
             setCurrantAddress(response?.data?.data[response.data.data.length - 1]?._id);
         } catch (error) {
-            toast.error(error.message, { position: 'top-right', autoClose: 1500 });
+            toast.error(error.message, { position: 'top-center', autoClose: 1500 });
         }
     }
     useEffect(() => {
@@ -127,11 +127,11 @@ export default function UserAddress() {
     async function deleteAddress(id) {
         try {
             let response = await axios.delete(`https://route-ecommerce.onrender.com/api/v1/addresses/${id}`, { headers });
-            toast.success('Address deleted successfully!', { position: 'top-right', autoClose: 1500 });
+            toast.success('Address deleted successfully!', { position: 'top-center', autoClose: 1500 });
             setAddresses(response.data.data);
             setAddressRequierd(true);
         } catch (error) {
-            toast.error(error.message, { position: 'top-right', autoClose: 1500 });
+            toast.error(error.message, { position: 'top-center', autoClose: 1500 });
         }
     }
     async function getCurrentAddress() {

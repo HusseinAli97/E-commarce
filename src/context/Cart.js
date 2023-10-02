@@ -70,9 +70,9 @@ export default function CartProvider({ children }) {
                 setCartItems(res.data);
                 setIsLoading(false);
                 if (res.data.status === 'success') {
-                    toast.success('Product removed from cart', { position: "top-right", autoClose: 1500 });
+                    toast.success('Product removed from cart', { position: "top-center", autoClose: 1500 });
                 } else {
-                    toast.error(res.data.message, { position: "top-right", autoClose: 1500 });
+                    toast.error(res.data.message, { position: "top-center", autoClose: 1500 });
                 }
                 return res
             })

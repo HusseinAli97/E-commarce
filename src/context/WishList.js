@@ -56,14 +56,14 @@ export default function WishListProvider({ children }) {
         })
         .then((res) => {
             if(res.status===200){
-                toast.success('Product added to wishList', { position: "top-right", autoClose: 1500 });
+                toast.success('Product added to wishList', { position: "top-center", autoClose: 1500 });
             }
             getUserWishList();
             setWishListId(res?.data?.data)
             return res;
         })
         .catch((err) => 
-        toast.error(err.response.data.message, { position: "top-right", autoClose: 1500 })
+        toast.error(err.response.data.message, { position: "top-center", autoClose: 1500 })
         );
     }
     function deleteFromWshList(productId) {
@@ -73,14 +73,14 @@ export default function WishListProvider({ children }) {
         .then((res) => {
             setIsLoading(false);
             if (res.data.status === 'success') {
-                toast.success('Product removed from wishList', { position: "top-right", autoClose: 1500 });
+                toast.success('Product removed from wishList', { position: "top-center", autoClose: 1500 });
             }
             getUserWishList();
             setWishListId(res?.data?.data)
             return res
         })
         .catch((err) => {
-            toast.error(err.response.data.message, { position: "top-right", autoClose: 1500 });
+            toast.error(err.response.data.message, { position: "top-center", autoClose: 1500 });
         });
     }
 
