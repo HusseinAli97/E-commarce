@@ -30,8 +30,8 @@ export default function DropDownCart() {
 
     return (
         <>
-            <Dropdown>
-                <Dropdown.Toggle variant="" id="dropdown-autoclose-true" className='border-0' >
+            <Dropdown autoClose="outside">
+                <Dropdown.Toggle variant="" className='border-0' id="dropdown-autoclose-outside" >
                     <i className={`fas fa-shopping-cart cartHover fa-lg me-2 ${style.cartHover}`}></i>
                     {
                         cartLength ?
@@ -70,7 +70,7 @@ export default function DropDownCart() {
                                     </Button>
                                 </Col>
                                 <Col xs={6}>
-                                    <Button className={` w-100 ${style.checkout} buttonMain textHover border-0` } onClick={() => navigate('/checkout')} >
+                                    <Button className={` w-100 ${style.checkout} buttonMain textHover border-0`} onClick={() => navigate('/checkout')} >
                                         <i className="fa-solid fa-money-check-dollar fa-lg" />
                                     </Button>
                                 </Col>
