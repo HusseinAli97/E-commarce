@@ -17,6 +17,7 @@ export default function NavBar() {
     useEffect(() => {
         setIsHidden(token === null);
     }, [token]);
+
     const variants = {
         hidden: { opacity: 0, x: '100%' },
         visible: { opacity: 1, x: 0 },
@@ -66,16 +67,20 @@ export default function NavBar() {
         </motion.div>
     </div >);
     return (
-        <Navbar expand="md" className="shadow-lg py-3">
-            <Container fluid className="">
-                <Link to="/" className="d-flex align-items-center justify-content-center">
-                    <img src={logo} alt="logo" className="img-fluid" />
-                </Link>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" className="shadow-none border-0" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    {token ? content : content}
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <>
+            {
+                token && <Navbar expand="md" className="shadow-lg py-3">
+                    <Container fluid className="">
+                        <Link to="/" className="d-flex align-items-center justify-content-center">
+                            <img src={logo} alt="logo" className="img-fluid" />
+                        </Link>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" className="shadow-none border-0" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            {token ? content : content}
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
+            }
+        </>
     );
 }

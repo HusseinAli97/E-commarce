@@ -36,3 +36,9 @@ label {
 .MnH .form-text {
     white-space: nowrap;
 }
+.bgBackdrop {
+    z-index: 1000 ;
+}
+.bgdialog{
+    z-index: -1 !important;
+}
