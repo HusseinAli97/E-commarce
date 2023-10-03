@@ -1,7 +1,6 @@
 import { Container, Row, Badge } from "react-bootstrap";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
-
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-flip";
@@ -40,7 +39,11 @@ export default function HomeSlider() {
                                     <h3>Groceries</h3>
                                 </div>
                                 <div className={styles.content}>
-                                    <h3>Shop Fresh</h3>
+                                    <h3>
+                                        <Badge bg='dark'>
+                                        Shop Fresh
+                                        </Badge>
+                                        </h3>
                                     <h3>Vegetables &amp; Fruits</h3>
                                 </div>
                                 <div className={styles.offer}>
@@ -64,7 +67,6 @@ export default function HomeSlider() {
                                     <h3>ELECTRONICS</h3>
                                 </div>
                                 <div className={styles.content}>
-
                                     <h3>
                                         <Badge bg="danger">
                                             Amazing Deals on

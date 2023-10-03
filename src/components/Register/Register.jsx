@@ -24,11 +24,7 @@ export default function Register({ handleClose, show }) {
     };
     return (
         <>
-            <ToastContainer position="top-right" autoClose={3000} hideProgressBar theme="colored" />
-            <Modal show={show} centered onHide={handleClose} className={`${styles.bg}`} size='lg' backdrop="static" backdropClassName={styles.bgBackdrop} dialogClassName={styles.bgdialog}>
-                <Container className={`p-0 shadow  ${styles.bgCard}  position-relative`}>
-                    <Row className='px-5 pt-5 pb-3'>
-                        <Col xs={12} className={`mx-auto ${styles.bgForm} position-relative`}>
+            <Modal show={show} fullscreen={'sm-down'} centered={true} onHide={handleClose} className={`${styles.bg}`} size='lg' backdrop="static" backdropClassName={styles.bgBackdrop} dialogClassName={styles.bgDialog} contentClassName={styles.bgContent}>
                             <div className="d-flex flex-column w-100 justify-content-center align-items-center position-relative">
                                 <div className="text-center">
                                     <img src={logo} width={"150px"} alt="logo" />
@@ -41,10 +37,6 @@ export default function Register({ handleClose, show }) {
                                     <SignUp switchToLoginForm={switchToLoginForm} />
                                 )}
                             </div>
-                        </Col>
-                    </Row>
-                    <Row className=''>
-                        <Col xs={12} className="text-center">
                         <div className={`text-center mb-2 ${styles.toggleContainer}`}>
                                 {isLoginForm ? (
                                     <motion.div
@@ -92,9 +84,6 @@ export default function Register({ handleClose, show }) {
                                     </motion.div>
                                 )}
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
             </Modal>
         </>
     );
